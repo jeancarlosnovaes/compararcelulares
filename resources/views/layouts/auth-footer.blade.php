@@ -1,0 +1,1 @@
+<strong>&copy; 2018-<?php echo date("Y"); ?> <a href="https://www.compararcelulares.com.br">CompararCelulares</a>.</strong> All rights reserved.

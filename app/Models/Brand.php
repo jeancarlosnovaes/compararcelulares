@@ -94,6 +94,7 @@ class Brand extends Model {
      */
     public static $rules = [
         'name' => 'required',
+        'logo' => 'required | mimes:jpeg,jpg,png,svg,gif | max:2048'
     ];
 
     public function smartphone() {

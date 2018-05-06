@@ -8,9 +8,9 @@
 
         <div class="card-body">
             @include('adminlte-templates::common.errors')
-            {!! Form::model($tablet, ['route' => ['tablets.update', $tablet->id], 'method' => 'patch']) !!}
+            {{ Form::model($tablet, ['route' => ['tablets.update', $tablet->id], 'method' => 'patch']) }}
                 @include('tablets.fields')
-            {!! Form::close() !!}
+            {{ Form::close() }}
        </div>
    </div>
 @endsection

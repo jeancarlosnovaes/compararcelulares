@@ -7,9 +7,9 @@
 
         <div class="card-body">
             @include('adminlte-templates::common.errors') 
-            {!! Form::open(['route' => 'smartphones.store']) !!} 
+            {{ Form::open(['route' => 'smartphones.store']) }} 
                 @include('smartphones.fields')
-            {!! Form::close() !!}
+            {{ Form::close() }}
         </div>
     </div>
 @endsection

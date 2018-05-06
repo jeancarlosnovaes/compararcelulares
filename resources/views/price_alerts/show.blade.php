@@ -7,7 +7,7 @@
 
         <div class="card-body">
             @include('priceAlerts.show_fields')
-            <a href="{!! route('priceAlerts.index') !!}" class="btn btn-default">Back</a>
+            <a href="{{ route('priceAlerts.index') }}" class="btn btn-default">Back</a>
         </div>
     </div>
 @endsection

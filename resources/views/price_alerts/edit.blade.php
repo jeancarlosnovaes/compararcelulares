@@ -8,9 +8,9 @@
 
         <div class="card-body">
             @include('adminlte-templates::common.errors')
-            {!! Form::model($priceAlert, ['route' => ['priceAlerts.update', $priceAlert->id], 'method' => 'patch']) !!}
+            {{ Form::model($priceAlert, ['route' => ['priceAlerts.update', $priceAlert->id], 'method' => 'patch']) }}
                 @include('price_alerts.fields')
-            {!! Form::close() !!}
+            {{ Form::close() }}
        </div>
    </div>
 @endsection

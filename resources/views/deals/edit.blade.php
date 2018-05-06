@@ -10,8 +10,8 @@
             {{--
             <form action="{{ route( 'deals.update', [ 'id' => $deals->id ] ) }}">
                 @csrf @method( 'PATCH' ) @include('deals.fields')
-            </form> --}} {!! Form::model($deals, ['route' => ['deals.update', $deals->id], 'method' => 'patch'])
-            !!} @include('deals.fields') {!! Form::close() !!}  
+            </form> --}} {{ Form::model($deals, ['route' => ['deals.update', $deals->id], 'method' => 'patch'])
+            }} @include('deals.fields') {{ Form::close() }}  
         </div>
     </div>
 @endsection

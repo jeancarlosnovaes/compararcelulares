@@ -7,7 +7,7 @@
 
         <div class="card-body">
             @include('smartphones.show_fields')
-            <a href="{!! route('smartphones.index') !!}" class="btn btn-default">Back</a>
+            <a href="{{ route('smartphones.index') }}" class="btn btn-default">Back</a>
         </div>
     </div>
 @endsection

@@ -9,7 +9,7 @@
 
         <div class="card-body">
             @include('advertisements.show_fields')
-            <a href="{!! route('advertisements.index') !!}" class="btn btn-default">Back</a>
+            <a href="{{ route('advertisements.index') }}" class="btn btn-default">Back</a>
         </div>
     </div>
 @endsection

@@ -8,9 +8,9 @@
 
         <div class="card-body">
             @include('adminlte-templates::common.errors')
-            {!! Form::model($coupon, ['route' => ['coupons.update', $coupon->id], 'method' => 'patch']) !!}
+            {{ Form::model($coupon, ['route' => ['coupons.update', $coupon->id], 'method' => 'patch']) }}
                 @include('coupons.fields')
-            {!! Form::close() !!}
+            {{ Form::close() }}
        </div>
    </div>
 @endsection

@@ -7,7 +7,7 @@
 
         <div class="card-body">
             @include('comments.show_fields')
-            <a href="{!! route('comments.index') !!}" class="btn btn-default">Back</a>
+            <a href="{{ route('comments.index') }}" class="btn btn-default">Back</a>
         </div>
     </div>
 @endsection

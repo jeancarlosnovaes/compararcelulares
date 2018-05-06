@@ -1,36 +1,18 @@
-<!-- Id Field -->
-<div class="form-group">
-    {!! Form::label('id', 'Id:') !!}
-    <p>{!! $advertisement->id !!}</p>
+<div class="table-responsive">
+    <table class="table table-bordered table-hover" id="advertisement-table">
+        <thead>
+            <tr>
+                <th>Platform</th>
+                <th>Code</th>
+                <th>Type</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ $advertisement->platform }}</td>
+                <td>{{ $advertisement->code }}</td>
+                <td>{{ $advertisement->type }}</td>
+            </tr>
+        </tbody>
+    </table>
 </div>
-
-<!-- Platform Field -->
-<div class="form-group">
-    {!! Form::label('platform', 'Platform:') !!}
-    <p>{!! $advertisement->platform !!}</p>
-</div>
-
-<!-- Code Field -->
-<div class="form-group">
-    {!! Form::label('code', 'Code:') !!}
-    <p>{!! $advertisement->code !!}</p>
-</div>
-
-<!-- Type Field -->
-<div class="form-group">
-    {!! Form::label('type', 'Type:') !!}
-    <p>{!! $advertisement->type !!}</p>
-</div>
-
-<!-- Created At Field -->
-<div class="form-group">
-    {!! Form::label('created_at', 'Created At:') !!}
-    <p>{!! $advertisement->created_at !!}</p>
-</div>
-
-<!-- Updated At Field -->
-<div class="form-group">
-    {!! Form::label('updated_at', 'Updated At:') !!}
-    <p>{!! $advertisement->updated_at !!}</p>
-</div>
-

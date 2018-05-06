@@ -1,24 +1,16 @@
-@extends('layouts.app')
-
+@extends('layouts.app') 
 @section('content')
-    <section class="content-header">
-        <h1>
-            Brand
-        </h1>
-    </section>
-    <div class="content">
-        @include('adminlte-templates::common.errors')
-        <div class="box box-primary">
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">Brands</h3>
+        </div>
 
-            <div class="box-body">
-                <div class="row">
-                    {!! Form::open(['route' => 'brands.store']) !!}
+        <div class="card-body">
+            @include('adminlte-templates::common.errors') 
+            {!! Form::open(['route' => 'brands.store']) !!} 
+                @include('brands.fields') {!!
+            Form::close() !!}
 
-                        @include('brands.fields')
-
-                    {!! Form::close() !!}
-                </div>
-            </div>
         </div>
     </div>
 @endsection

@@ -1,23 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
-    <section class="content-header">
-        <h1>
-            Comment
-        </h1>
-   </section>
-   <div class="content">
-       @include('adminlte-templates::common.errors')
-       <div class="box box-primary">
-           <div class="box-body">
-               <div class="row">
-                   {!! Form::model($comment, ['route' => ['comments.update', $comment->id], 'method' => 'patch']) !!}
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">Comments</h3>
+        </div>
 
-                        @include('comments.fields')
-
-                   {!! Form::close() !!}
-               </div>
-           </div>
+        <div class="card-body">
+            @include('adminlte-templates::common.errors')
+            {!! Form::model($comment, ['route' => ['comments.update', $comment->id], 'method' => 'patch']) !!}
+                @include('comments.fields')
+            {!! Form::close() !!}
        </div>
    </div>
 @endsection

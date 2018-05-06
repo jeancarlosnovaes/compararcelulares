@@ -1,36 +1,20 @@
-<!-- Id Field -->
-<div class="form-group">
-    {!! Form::label('id', 'Id:') !!}
-    <p>{!! $store->id !!}</p>
+<div class="table-responsive">
+    <table class="table table-bordered table-hover" id="store-table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Logo</th>
+                <th>URL</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ $store->product_id }}</td>
+                <td>{{ $store->product_name }}</td>
+                <td>{{ $store->name }}</td>
+                <td><img src="{{ $store->logo }}" alt="{{ $store->name }}"></td>
+                <td>{{ $store->url }}</td>
+            </tr>
+        </tbody>
+    </table>
 </div>
-
-<!-- Name Field -->
-<div class="form-group">
-    {!! Form::label('name', 'Name:') !!}
-    <p>{!! $store->name !!}</p>
-</div>
-
-<!-- Logo Field -->
-<div class="form-group">
-    {!! Form::label('logo', 'Logo:') !!}
-    <p>{!! $store->logo !!}</p>
-</div>
-
-<!-- Url Field -->
-<div class="form-group">
-    {!! Form::label('url', 'Url:') !!}
-    <p>{!! $store->url !!}</p>
-</div>
-
-<!-- Created At Field -->
-<div class="form-group">
-    {!! Form::label('created_at', 'Created At:') !!}
-    <p>{!! $store->created_at !!}</p>
-</div>
-
-<!-- Updated At Field -->
-<div class="form-group">
-    {!! Form::label('updated_at', 'Updated At:') !!}
-    <p>{!! $store->updated_at !!}</p>
-</div>
-

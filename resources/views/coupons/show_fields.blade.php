@@ -1,84 +1,36 @@
-<!-- Id Field -->
-<div class="form-group">
-    {!! Form::label('id', 'Id:') !!}
-    <p>{!! $coupon->id !!}</p>
+<div class="table-responsive">
+    <table class="table table-bordered table-hover" id="coupon-table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Image</th>
+                <th>URL</th>
+                <th>Code</th>
+                <th>Discount</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Category</th>
+                <th>Pros</th>
+                <th>Vote Yes</th>
+                <th>Vote No</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ $coupon->title }}</td>
+                <td>{{ $coupon->description }}</td>
+                <td><img src="{{ $coupon->image }}" alt="{{$coupon->title}}"></td>
+                <td>{{ $coupon->url }}</td>
+                <td>{{ $coupon->code }}</td>
+                <td>{{ $coupon->discount }}</td>
+                <td>{{ $coupon->start_date }}</td>
+                <td>{{ $coupon->end_date }}</td>
+                <td>{{ $coupon->category }}</td>
+                <td>{{ $coupon->pros }}</td>
+                <td>{{ $coupon->vote_yes }}</td>
+                <td>{{ $coupon->vote_no }}</td>
+            </tr>
+        </tbody>
+    </table>
 </div>
-
-<!-- Title Field -->
-<div class="form-group">
-    {!! Form::label('title', 'Title:') !!}
-    <p>{!! $coupon->title !!}</p>
-</div>
-
-<!-- Description Field -->
-<div class="form-group">
-    {!! Form::label('description', 'Description:') !!}
-    <p>{!! $coupon->description !!}</p>
-</div>
-
-<!-- Image Field -->
-<div class="form-group">
-    {!! Form::label('image', 'Image:') !!}
-    <p>{!! $coupon->image !!}</p>
-</div>
-
-<!-- Url Field -->
-<div class="form-group">
-    {!! Form::label('url', 'Url:') !!}
-    <p>{!! $coupon->url !!}</p>
-</div>
-
-<!-- Code Field -->
-<div class="form-group">
-    {!! Form::label('code', 'Code:') !!}
-    <p>{!! $coupon->code !!}</p>
-</div>
-
-<!-- Discount Field -->
-<div class="form-group">
-    {!! Form::label('discount', 'Discount:') !!}
-    <p>{!! $coupon->discount !!}</p>
-</div>
-
-<!-- Start Date Field -->
-<div class="form-group">
-    {!! Form::label('start_date', 'Start Date:') !!}
-    <p>{!! $coupon->start_date !!}</p>
-</div>
-
-<!-- End Date Field -->
-<div class="form-group">
-    {!! Form::label('end_date', 'End Date:') !!}
-    <p>{!! $coupon->end_date !!}</p>
-</div>
-
-<!-- Category Field -->
-<div class="form-group">
-    {!! Form::label('category', 'Category:') !!}
-    <p>{!! $coupon->category !!}</p>
-</div>
-
-<!-- Vote Yes Field -->
-<div class="form-group">
-    {!! Form::label('vote_yes', 'Vote Yes:') !!}
-    <p>{!! $coupon->vote_yes !!}</p>
-</div>
-
-<!-- Vote No Field -->
-<div class="form-group">
-    {!! Form::label('vote_no', 'Vote No:') !!}
-    <p>{!! $coupon->vote_no !!}</p>
-</div>
-
-<!-- Created At Field -->
-<div class="form-group">
-    {!! Form::label('created_at', 'Created At:') !!}
-    <p>{!! $coupon->created_at !!}</p>
-</div>
-
-<!-- Updated At Field -->
-<div class="form-group">
-    {!! Form::label('updated_at', 'Updated At:') !!}
-    <p>{!! $coupon->updated_at !!}</p>
-</div>
-

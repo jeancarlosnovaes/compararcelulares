@@ -1,23 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
-    <section class="content-header">
-        <h1>
-            Smartphone
-        </h1>
-   </section>
-   <div class="content">
-       @include('adminlte-templates::common.errors')
-       <div class="box box-primary">
-           <div class="box-body">
-               <div class="row">
-                   {!! Form::model($smartphone, ['route' => ['smartphones.update', $smartphone->id], 'method' => 'patch']) !!}
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">Smartphones</h3>
+        </div>
 
-                        @include('smartphones.fields')
-
-                   {!! Form::close() !!}
-               </div>
-           </div>
+        <div class="card-body">
+            @include('adminlte-templates::common.errors')
+            {!! Form::model($smartphone, ['route' => ['smartphones.update', $smartphone->id], 'method' => 'patch']) !!}
+                @include('smartphones.fields')
+            {!! Form::close() !!}
        </div>
    </div>
 @endsection

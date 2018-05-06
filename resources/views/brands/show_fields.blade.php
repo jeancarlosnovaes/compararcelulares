@@ -1,42 +1,20 @@
-<!-- Id Field -->
-<div class="form-group">
-    {!! Form::label('id', 'Id:') !!}
-    <p>{!! $brand->id !!}</p>
+<div class="table-responsive">
+    <table class="table table-bordered table-hover" id="brand-table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Logo</th>
+                <th>Count</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ $brand->name }}</td>
+                <td>{{ $brand->description }}</td>
+                <td><img src="{{ $brand->logo }}" alt="{{ $brand->name }}"></td>
+                <td>{{ $brand->count }}</td>
+            </tr>
+        </tbody>
+    </table>
 </div>
-
-<!-- Name Field -->
-<div class="form-group">
-    {!! Form::label('name', 'Name:') !!}
-    <p>{!! $brand->name !!}</p>
-</div>
-
-<!-- Description Field -->
-<div class="form-group">
-    {!! Form::label('description', 'Description:') !!}
-    <p>{!! $brand->description !!}</p>
-</div>
-
-<!-- Logo Field -->
-<div class="form-group">
-    {!! Form::label('logo', 'Logo:') !!}
-    <p>{!! $brand->logo !!}</p>
-</div>
-
-<!-- Count Field -->
-<div class="form-group">
-    {!! Form::label('count', 'Count:') !!}
-    <p>{!! $brand->count !!}</p>
-</div>
-
-<!-- Created At Field -->
-<div class="form-group">
-    {!! Form::label('created_at', 'Created At:') !!}
-    <p>{!! $brand->created_at !!}</p>
-</div>
-
-<!-- Updated At Field -->
-<div class="form-group">
-    {!! Form::label('updated_at', 'Updated At:') !!}
-    <p>{!! $brand->updated_at !!}</p>
-</div>
-

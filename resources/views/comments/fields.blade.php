@@ -1,5 +1,5 @@
 <!-- When Bought Field -->
-<div class="form-group col-sm-6">
+<div class="form-group">
     {!! Form::label('when_bought', 'When Bought:') !!}
     <label class="checkbox-inline">
         {!! Form::hidden('when_bought', false) !!}
@@ -8,7 +8,7 @@
 </div>
 
 <!-- Resistant Scratchs And Falling Field -->
-<div class="form-group col-sm-6">
+<div class="form-group">
     {!! Form::label('resistant_scratchs_and_falling', 'Resistant Scratchs And Falling:') !!}
     <label class="checkbox-inline">
         {!! Form::hidden('resistant_scratchs_and_falling', false) !!}
@@ -17,7 +17,7 @@
 </div>
 
 <!-- Is Beautiful Field -->
-<div class="form-group col-sm-6">
+<div class="form-group">
     {!! Form::label('is_beautiful', 'Is Beautiful:') !!}
     <label class="checkbox-inline">
         {!! Form::hidden('is_beautiful', false) !!}
@@ -26,7 +26,7 @@
 </div>
 
 <!-- Comfortable Field -->
-<div class="form-group col-sm-6">
+<div class="form-group">
     {!! Form::label('comfortable', 'Comfortable:') !!}
     <label class="checkbox-inline">
         {!! Form::hidden('comfortable', false) !!}
@@ -35,7 +35,7 @@
 </div>
 
 <!-- Good Vision In The Sun Field -->
-<div class="form-group col-sm-6">
+<div class="form-group">
     {!! Form::label('good_vision_in_the_sun', 'Good Vision In The Sun:') !!}
     <label class="checkbox-inline">
         {!! Form::hidden('good_vision_in_the_sun', false) !!}
@@ -44,7 +44,7 @@
 </div>
 
 <!-- Works Well In Daily Use Field -->
-<div class="form-group col-sm-6">
+<div class="form-group">
     {!! Form::label('works_well_in_daily_use', 'Works Well In Daily Use:') !!}
     <label class="checkbox-inline">
         {!! Form::hidden('works_well_in_daily_use', false) !!}
@@ -53,7 +53,7 @@
 </div>
 
 <!-- Demanding Games Field -->
-<div class="form-group col-sm-6">
+<div class="form-group">
     {!! Form::label('demanding_games', 'Demanding Games:') !!}
     <label class="checkbox-inline">
         {!! Form::hidden('demanding_games', false) !!}
@@ -62,7 +62,7 @@
 </div>
 
 <!-- Good Sound Field -->
-<div class="form-group col-sm-6">
+<div class="form-group">
     {!! Form::label('good_sound', 'Good Sound:') !!}
     <label class="checkbox-inline">
         {!! Form::hidden('good_sound', false) !!}
@@ -71,7 +71,7 @@
 </div>
 
 <!-- Daytime Photos Field -->
-<div class="form-group col-sm-6">
+<div class="form-group">
     {!! Form::label('daytime_photos', 'Daytime Photos:') !!}
     <label class="checkbox-inline">
         {!! Form::hidden('daytime_photos', false) !!}
@@ -80,7 +80,7 @@
 </div>
 
 <!-- Night Photos Field -->
-<div class="form-group col-sm-6">
+<div class="form-group">
     {!! Form::label('night_photos', 'Night Photos:') !!}
     <label class="checkbox-inline">
         {!! Form::hidden('night_photos', false) !!}
@@ -89,7 +89,7 @@
 </div>
 
 <!-- Quality Selfies Field -->
-<div class="form-group col-sm-6">
+<div class="form-group">
     {!! Form::label('quality_selfies', 'Quality Selfies:') !!}
     <label class="checkbox-inline">
         {!! Form::hidden('quality_selfies', false) !!}
@@ -98,7 +98,7 @@
 </div>
 
 <!-- Powerful Flash Field -->
-<div class="form-group col-sm-6">
+<div class="form-group">
     {!! Form::label('powerful_flash', 'Powerful Flash:') !!}
     <label class="checkbox-inline">
         {!! Form::hidden('powerful_flash', false) !!}
@@ -107,7 +107,7 @@
 </div>
 
 <!-- Good Calls Field -->
-<div class="form-group col-sm-6">
+<div class="form-group">
     {!! Form::label('good_calls', 'Good Calls:') !!}
     <label class="checkbox-inline">
         {!! Form::hidden('good_calls', false) !!}
@@ -116,7 +116,7 @@
 </div>
 
 <!-- Quality Gps Field -->
-<div class="form-group col-sm-6">
+<div class="form-group">
     {!! Form::label('quality_GPS', 'Quality Gps:') !!}
     <label class="checkbox-inline">
         {!! Form::hidden('quality_GPS', false) !!}
@@ -125,7 +125,7 @@
 </div>
 
 <!-- Quality Wifi Field -->
-<div class="form-group col-sm-6">
+<div class="form-group">
     {!! Form::label('quality_WIFI', 'Quality Wifi:') !!}
     <label class="checkbox-inline">
         {!! Form::hidden('quality_WIFI', false) !!}
@@ -134,7 +134,7 @@
 </div>
 
 <!-- Battery Life Field -->
-<div class="form-group col-sm-6">
+<div class="form-group">
     {!! Form::label('battery_life', 'Battery Life:') !!}
     <label class="checkbox-inline">
         {!! Form::hidden('battery_life', false) !!}
@@ -143,7 +143,7 @@
 </div>
 
 <!-- Preinstalled Apps Field -->
-<div class="form-group col-sm-6">
+<div class="form-group">
     {!! Form::label('preinstalled_apps', 'Preinstalled Apps:') !!}
     <label class="checkbox-inline">
         {!! Form::hidden('preinstalled_apps', false) !!}
@@ -152,7 +152,7 @@
 </div>
 
 <!-- Receive Updates Field -->
-<div class="form-group col-sm-6">
+<div class="form-group">
     {!! Form::label('receive_updates', 'Receive Updates:') !!}
     <label class="checkbox-inline">
         {!! Form::hidden('receive_updates', false) !!}
@@ -161,31 +161,31 @@
 </div>
 
 <!-- Opinion In A Sentence Field -->
-<div class="form-group col-sm-6">
+<div class="form-group">
     {!! Form::label('opinion_in_a_sentence', 'Opinion In A Sentence:') !!}
     {!! Form::text('opinion_in_a_sentence', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Extended Opinion Field -->
-<div class="form-group col-sm-12 col-lg-12">
+<div class="form-group">
     {!! Form::label('extended_opinion', 'Extended Opinion:') !!}
     {!! Form::textarea('extended_opinion', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Pros Field -->
-<div class="form-group col-sm-6">
+<div class="form-group">
     {!! Form::label('pros', 'Pros:') !!}
     {!! Form::text('pros', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Cons Field -->
-<div class="form-group col-sm-6">
+<div class="form-group">
     {!! Form::label('cons', 'Cons:') !!}
     {!! Form::text('cons', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- General Opinion Field -->
-<div class="form-group col-sm-6">
+<div class="form-group">
     {!! Form::label('general_opinion', 'General Opinion:') !!}
     <label class="checkbox-inline">
         {!! Form::hidden('general_opinion', false) !!}
@@ -194,7 +194,7 @@
 </div>
 
 <!-- Submit Field -->
-<div class="form-group col-sm-12">
+<div class="form-group">
     {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
     <a href="{!! route('comments.index') !!}" class="btn btn-default">Cancel</a>
 </div>

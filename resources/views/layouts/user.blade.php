@@ -3,6 +3,6 @@
         <img src="/img/avatar.png" class="img-circle elevation-2" alt="Imagem do Usuário">
     </div>
     <div class="info">
-        <a href="#" class="d-block">{{ Auth::user()->name }}</a>
+        <a href="{{ route( 'users.edit', Auth::user()->id )}}" class="d-block">{{ Auth::user()->name }}</a>
     </div>
 </div>

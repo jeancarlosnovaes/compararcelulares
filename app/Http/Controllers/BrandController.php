@@ -57,19 +57,20 @@ class BrandController extends AppBaseController {
             if ( $request->hasFile( 'logo' ) && $request->file( 'logo' )->isValid() ) {
                 $originalName = $request->file( 'logo' )->getClientOriginalName();
                 $nameWithoutSpace = preg_replace( '/\s+/', '-', $originalName );
-                $request->logo->storeAs( 'storage', $nameWithoutSpace );
+                $month = date('F-Y');
+                $path = $request->file( 'logo' )->storeAs( $month, $nameWithoutSpace, 'public' );
                 $input = $request->all();
-                $input[ 'logo' ] = $nameWithoutSpace;
+                $input[ 'logo' ] = 'storage/' . $path;
                 $brand = $this->brandRepository->create( $input );
-                $messagem = "Brand saved successfully.";
+                $message = "Brand saved successfully.";
             }
-                 
+           
         } catch ( Exception $e ) {
             $e->getMessage();
             $message = "Error " . $e->getMessage(); 
         }
 
-        Flash::success( $messagem );
+        Flash::success( $message );
 
         return redirect( route( 'brands.index' ) );
     }
@@ -134,13 +135,13 @@ class BrandController extends AppBaseController {
             if ( $request->hasFile( 'logo' ) && $request->file( 'logo' )->isValid() ) {
                 $originalName = $request->file( 'logo' )->getClientOriginalName();
                 $nameWithoutSpace = preg_replace( '/\s+/', '-', $originalName );
-                $path = 'storage' . date( 'm' );
-                $request->file( 'logo' )->storeAs( 'storage', $nameWithoutSpace, 'public' );
+                $month = date('F-Y');
+                $path = $request->file( 'logo' )->storeAs(  $month, $nameWithoutSpace, 'public' );
                 // dd($oi);
                 $input = $request->all();
-                $input[ 'logo' ] = $nameWithoutSpace;
+                $input[ 'logo' ] = 'storage/' . $path;
                 $brand = $this->brandRepository->update( $input, $id );
-                $messagem = "Brand saved successfully.";
+                $message = "Brand saved successfully.";
             }
                  
         } catch ( Exception $e ) {
@@ -148,7 +149,7 @@ class BrandController extends AppBaseController {
             $message = "Error " . $e->getMessage(); 
         }
 
-        Flash::success( $messagem );
+        Flash::success( $message );
 
         return redirect( route( 'brands.index' ) );
     }

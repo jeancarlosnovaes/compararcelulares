@@ -54,11 +54,24 @@ class SmartphoneController extends AppBaseController {
      * @return Response
      */
     public function store( CreateSmartphoneRequest $request ) {
-        $input = $request->all();
+        try{
+            if ( $request->hasFile( 'image' ) && $request->file( 'image' )->isValid() ) {
+                $originalName = $request->file( 'image' )->getClientOriginalName();
+                $nameWithoutSpace = preg_replace( '/\s+/', '-', $originalName );
+                $month = date('F-Y');
+                $path = $request->file( 'image' )->storeAs( $month, $nameWithoutSpace, 'public' );
+                $input = $request->all();
+                $input[ 'image' ] = 'storage/' . $path;
+                $smartphone = $this->smartphoneRepository->create( $input );
+                $message = "Smartphone saved successfully.";
+            }
+           
+        } catch ( Exception $e ) {
+            $e->getMessage();
+            $message = "Error " . $e->getMessage(); 
+        }
 
-        $smartphone = $this->smartphoneRepository->create( $input );
-
-        Flash::success( 'Smartphone saved successfully.' );
+        Flash::success( $message );
 
         return redirect( route( 'smartphones.index' ) );
     }
@@ -118,9 +131,24 @@ class SmartphoneController extends AppBaseController {
             return redirect( route( 'smartphones.index' ) );
         }
 
-        $smartphone = $this->smartphoneRepository->update( $request->all(), $id );
+        try{
+            if ( $request->hasFile( 'logo' ) && $request->file( 'logo' )->isValid() ) {
+                $originalName = $request->file( 'logo' )->getClientOriginalName();
+                $nameWithoutSpace = preg_replace( '/\s+/', '-', $originalName );
+                $month = date('F-Y');
+                $path = $request->file( 'logo' )->storeAs( $month, $nameWithoutSpace, 'public' );
+                $input = $request->all();
+                $input[ 'logo' ] = 'storage/' . $path;
+                $smartphone = $this->smartphoneRepository->update( $input, $id );
+                $message = "Smartphone saved successfully.";
+            }
+           
+        } catch ( Exception $e ) {
+            $e->getMessage();
+            $message = "Error " . $e->getMessage(); 
+        }
 
-        Flash::success( 'Smartphone updated successfully.' );
+        Flash::success( $message );
 
         return redirect( route( 'smartphones.index' ) );
     }

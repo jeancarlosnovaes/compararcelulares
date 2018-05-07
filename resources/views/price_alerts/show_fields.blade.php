@@ -1,5 +1,5 @@
 <div class="table-responsive">
-    <table class="table table-bordered table-hover" id="priceAlert-table">
+    <table class="table table-bordered table-hover" id="priceAlerts-table">
         <thead>
             <tr>
                 <th>Product Id</th>

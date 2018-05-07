@@ -54,11 +54,24 @@ class TabletController extends AppBaseController {
      * @return Response
      */
     public function store( CreateTabletRequest $request ) {
-        $input = $request->all();
+        try{
+            if ( $request->hasFile( 'image' ) && $request->file( 'image' )->isValid() ) {
+                $originalName = $request->file( 'image' )->getClientOriginalName();
+                $nameWithoutSpace = preg_replace( '/\s+/', '-', $originalName );
+                $month = date('F-Y');
+                $path = $request->file( 'image' )->storeAs( $month, $nameWithoutSpace, 'public' );
+                $input = $request->all();
+                $input[ 'image' ] = 'storage/' . $path;
+                $tablet = $this->tabletRepository->create( $input );
+                $message = "Tablet saved successfully.";
+            }
+           
+        } catch ( Exception $e ) {
+            $e->getMessage();
+            $message = "Error " . $e->getMessage(); 
+        }
 
-        $tablet = $this->tabletRepository->create( $input );
-
-        Flash::success( 'Tablet saved successfully.' );
+        Flash::success( $message );
 
         return redirect( route( 'tablets.index' ) );
     }
@@ -118,10 +131,24 @@ class TabletController extends AppBaseController {
             return redirect( route( 'tablets.index' ) );
         }
 
-        $tablet = $this->tabletRepository->update( $request->all(), $id );
+        try{
+            if ( $request->hasFile( 'image' ) && $request->file( 'image' )->isValid() ) {
+                $originalName = $request->file( 'image' )->getClientOriginalName();
+                $nameWithoutSpace = preg_replace( '/\s+/', '-', $originalName );
+                $month = date('F-Y');
+                $path = $request->file( 'image' )->storeAs( $month, $nameWithoutSpace, 'public' );
+                $input = $request->all();
+                $input[ 'image' ] = 'storage/' . $path;
+                $tablet = $this->tabletRepository->update( $input, $id );
+                $message = "Tablet saved successfully.";
+            }
+           
+        } catch ( Exception $e ) {
+            $e->getMessage();
+            $message = "Error " . $e->getMessage(); 
+        }
 
-        Flash::success( 'Tablet updated successfully.' );
-
+        Flash::success( $message );
         return redirect( route( 'tablets.index' ) );
     }
 

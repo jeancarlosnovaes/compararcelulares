@@ -11,6 +11,8 @@ use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 
+use Exception;
+
 class CouponController extends AppBaseController {
     /** @var  CouponRepository */
     private $couponRepository;
@@ -50,11 +52,25 @@ class CouponController extends AppBaseController {
      * @return Response
      */
     public function store( CreateCouponRequest $request ) {
-        $input = $request->all();
+        try{
+            if ( $request->hasFile( 'image' ) && $request->file( 'image' )->isValid() ) {
+                $originalName = $request->file( 'image' )->getClientOriginalName();
+                $nameWithoutSpace = preg_replace( '/\s+/', '-', $originalName );
+                $month = date('F-Y');
+                $path = $request->file( 'image' )->storeAs( $month, $nameWithoutSpace, 'public' );
+                $input = $request->all();
+                $input[ 'image' ] = 'storage/' . $path;
+                $input[ 'vote_yes' ] = 0;
+                $input[ 'vote_no' ] = 0;
+                $coupon = $this->couponRepository->create( $input );
+                $message = "Coupon saved successfully.";
+            }
+           
+        } catch ( Exception $e ) {
+            $message = "Error " . $e->getMessage(); 
+        }
 
-        $coupon = $this->couponRepository->create( $input );
-
-        Flash::success( 'Coupon saved successfully.' );
+        Flash::success( $message );
 
         return redirect( route( 'coupons.index' ) );
     }
@@ -114,9 +130,24 @@ class CouponController extends AppBaseController {
             return redirect( route( 'coupons.index' ) );
         }
 
-        $coupon = $this->couponRepository->update( $request->all(), $id );
+        try{
+            if ( $request->hasFile( 'image' ) && $request->file( 'image' )->isValid() ) {
+                $originalName = $request->file( 'image' )->getClientOriginalName();
+                $nameWithoutSpace = preg_replace( '/\s+/', '-', $originalName );
+                $month = date('F-Y');
+                $path = $request->file( 'image' )->storeAs( $month, $nameWithoutSpace, 'public' );
+                $input = $request->all();
+                $input[ 'image' ] = 'storage/' . $path;
+                $coupon = $this->couponRepository->update( $input, $id );
+                $message = "Coupon saved successfully.";
+            }
+           
+        } catch ( Exception $e ) {
+            $e->getMessage();
+            $message = "Error " . $e->getMessage(); 
+        }
 
-        Flash::success( 'Coupon updated successfully.' );
+        Flash::success( $message );
 
         return redirect( route( 'coupons.index' ) );
     }

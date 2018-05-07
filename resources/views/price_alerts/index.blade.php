@@ -6,7 +6,7 @@
         <div class="row mb-2">
             <div class="col-sm-6">
                 <h1>Price Alerts</h1>
-                <a role="button" class="btn btn-success" href="{{ route( 'price_alerts.create' ) }}">
+                <a role="button" class="btn btn-success" href="{{ route( 'priceAlerts.create' ) }}">
                     <i class="fas fa-plus-circle"></i>
                     Add New
                 </a>

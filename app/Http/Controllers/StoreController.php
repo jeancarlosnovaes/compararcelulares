@@ -50,11 +50,24 @@ class StoreController extends AppBaseController {
      * @return Response
      */
     public function store( CreateStoreRequest $request ) {
-        $input = $request->all();
+        try{
+            if ( $request->hasFile( 'logo' ) && $request->file( 'logo' )->isValid() ) {
+                $originalName = $request->file( 'logo' )->getClientOriginalName();
+                $nameWithoutSpace = preg_replace( '/\s+/', '-', $originalName );
+                $month = date('F-Y');
+                $path = $request->file( 'logo' )->storeAs( $month, $nameWithoutSpace, 'public' );
+                $input = $request->all();
+                $input[ 'logo' ] = 'storage/' . $path;
+                $store = $this->storeRepository->create( $input );
+                $message = "Store saved successfully.";
+            }
+           
+        } catch ( Exception $e ) {
+            $e->getMessage();
+            $message = "Error " . $e->getMessage(); 
+        }
 
-        $store = $this->storeRepository->create( $input );
-
-        Flash::success( 'Store saved successfully.' );
+        Flash::success( $message );
 
         return redirect( route( 'stores.index' ) );
     }
@@ -114,9 +127,24 @@ class StoreController extends AppBaseController {
             return redirect( route( 'stores.index' ) );
         }
 
-        $store = $this->storeRepository->update( $request->all(), $id );
+        try{
+            if ( $request->hasFile( 'logo' ) && $request->file( 'logo' )->isValid() ) {
+                $originalName = $request->file( 'logo' )->getClientOriginalName();
+                $nameWithoutSpace = preg_replace( '/\s+/', '-', $originalName );
+                $month = date('F-Y');
+                $path = $request->file( 'logo' )->storeAs( $month, $nameWithoutSpace, 'public' );
+                $input = $request->all();
+                $input[ 'logo' ] = 'storage/' . $path;
+                $store = $this->storeRepository->update( $input, $id );
+                $message = "Store saved successfully.";
+            }
+           
+        } catch ( Exception $e ) {
+            $e->getMessage();
+            $message = "Error " . $e->getMessage(); 
+        }
 
-        Flash::success( 'Store updated successfully.' );
+        Flash::success( $message );
 
         return redirect( route( 'stores.index' ) );
     }

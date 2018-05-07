@@ -21,6 +21,9 @@ Auth::routes();
 Route::get( '/auth/{provider}', 'Auth\RegisterController@redirectToProvider' );
 Route::get( '/auth/{provider}/callback', 'Auth\RegisterController@handleProviderCallback' );
 
+Route::get( 'users/{user}/edit',  [ 'as' => 'users.edit', 'uses' => 'UserController@edit'] );
+Route::patch( 'users/{user}/update',  [ 'as' => 'users.update', 'uses' => 'UserController@update' ] );
+
 Route::get( '/verify/token/{token}', 'Auth\VerificationController@verify' )->name( 'auth.verify' );
 Route::get( '/verify/resend', 'Auth\VerificationController@resend' )->name( 'auth.verify.resend' );
 

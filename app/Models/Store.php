@@ -56,7 +56,8 @@ class Store extends Model {
     public $fillable = [
         'name',
         'logo',
-        'url'
+        'url', 
+        'deals_id'
     ];
 
     /**
@@ -81,6 +82,6 @@ class Store extends Model {
     ];
 
     public function deals() {
-        return $this->hasOne( 'App\Models\Deals' );
+        return $this->belongsTo( 'App\Models\Deals' );
     }
 }

@@ -10,7 +10,7 @@
         <tbody>
             <tr>
                 <td>{{ $store->name }}</td>
-                <td><img src="../{{ $store->logo }}" alt="{{ $store->name }}"></td>
+                <td><img src="../../{{ $store->logo }}" alt="{{ $store->name }}"></td>
                 <td><a href="{{ $store->url }}">{{ $store->url }}</a></td>
             </tr>
         </tbody>

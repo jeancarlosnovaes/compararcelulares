@@ -7,6 +7,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable {
     use Notifiable;
+    const ADMIN = 1;
+    const DEFAULT = 0;
 
     /**
      * The attributes that are mass assignable.
@@ -14,7 +16,7 @@ class User extends Authenticatable {
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'active', 'admin',
     ];
 
     /**
@@ -23,8 +25,13 @@ class User extends Authenticatable {
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token', 'active',
+        'password', 'remember_token',
     ];
+
+    
+    public function isAdmin()    {        
+        return $this->admin === self::ADMIN;    
+    }
 
     public function socialProviders() {
         return $this->hasMany( 'App\Models\SocialProvider' );

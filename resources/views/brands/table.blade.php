@@ -11,7 +11,7 @@
             @foreach($brands as $brand)
             <tr>
                 <td>{{ $brand->name }}</td>
-                <td><img src="{{ $brand->logo }}" alt="{{ $brand->name }}"></td>
+                <td><img src="../{{ $brand->logo }}" alt="{{ $brand->name }}"></td>
                 <td>
                     {{ Form::open(['route' => ['brands.destroy', $brand->id], 'method' => 'delete']) }}
                     <div class='btn-group d-flex justify-content-center'>

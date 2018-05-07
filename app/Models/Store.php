@@ -66,9 +66,10 @@ class Store extends Model {
      * @var array
      */
     protected $casts = [
-        'name' => 'string',
-        'logo' => 'string',
-        'url' => 'string'
+        'name'      => 'string',
+        'logo'      => 'string',
+        'url'       => 'string',
+        'deals_id'  => 'integer'
     ];
 
     /**
@@ -82,6 +83,6 @@ class Store extends Model {
     ];
 
     public function deals() {
-        return $this->belongsTo( 'App\Models\Deals' );
+        return $this->hasMany( 'App\Models\Deals' );
     }
 }

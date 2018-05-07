@@ -9,10 +9,16 @@
 						<a href="{{ url('/') }}"><img src="img/logo.jpg"></a>
 					</div>
 					<div class="card fat">
+						@if( session( 'status' ) )
+							<div class="alert alert-warning text-center"> 
+								{!! session( 'status' ) !!}
+							</div>
+						@endif
 						<div class="card-body">
 							<h4 class="card-title">{{ __('Register') }}</h4>
 							<form method="POST" action="{{ route('register') }}">
-							 
+								@csrf
+								
 								<div class="form-group">
 									<label for="name">{{ __('Name') }}</label>
 									<input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus>

@@ -16,6 +16,7 @@ class CreateStoresTable extends Migration {
             $table->string('name');
             $table->string('logo');
             $table->string('url');
+            $table->integer('deals_id')->unsigned();
             $table->timestamps();
             $table->softDeletes();
         });

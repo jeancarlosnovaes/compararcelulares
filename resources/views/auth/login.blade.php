@@ -9,6 +9,11 @@
 						<a href="{{ url('/') }}"><img src="../img/logo.jpg"></a>
 					</div>
 					<div class="card fat">
+						@if( session( 'status' ) )
+							<div class="alert alert-warning text-center"> 
+								{!! session( 'status' ) !!}
+							</div>
+						@endif
 						<div class="card-body">
 							<h4 class="card-title">{{ __('Login') }}</h4>
                             <form method="POST" action="{{ route('login') }}">

@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
+use Illuminate\Http\Request;
+
 class RegisterController extends Controller {
     /*
     |--------------------------------------------------------------------------
@@ -63,6 +65,8 @@ class RegisterController extends Controller {
             'name' => $data[ 'name' ],
             'email' => $data[ 'email' ],
             'password' => Hash::make( $data[ 'password' ] ),
+            'active' => false,
+            'admin' => User::DEFAULT
         ]);
     }
 
@@ -95,8 +99,10 @@ class RegisterController extends Controller {
         if( !$socialProvider ) {
             //create a new user and provider
             $user = User::firstOrCreate(
-                [ 'email'        => $socialUser->getEmail() ],
-                [ 'name'         => $socialUser->getName() ]
+                [ 'email'   => $socialUser->getEmail() ],
+                [ 'name'    => $socialUser->getName() ],
+                [ 'active'  => true ],
+                [ 'admin'   => User::DEFAULT ]
             );
             $user->socialProviders()->create(
                 [ 'provider_id' => $socialUser->getId(), 'provider' => $provider ]

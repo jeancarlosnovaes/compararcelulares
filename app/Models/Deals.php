@@ -5,7 +5,6 @@ namespace App\Models;
 use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-use App\Models\Store;
 
 /**
  * @SWG\Definition(
@@ -119,6 +118,6 @@ class Deals extends Model {
     ];
 
     public function store() {
-        return $this->hasOne( 'App\Models\Store' );
+        return $this->belongsTo( 'App\Models\Store', 'store_id' );
     }
 }

@@ -114,7 +114,7 @@
         <tbody>
             <tr>
                 <td>{{ $tablet->product_name }}</td>
-                <td><img src="{{ $tablet->product_image }}" alt="{{ $tablet->product_name }}"></td>
+                <td><img src="../{{ $tablet->product_image }}" alt="{{ $tablet->product_name }}"></td>
                 <td>{{ $tablet->product_description }}</td>
                 <td>{{ $tablet->brand->name }}</td>
                 <td>{{ $tablet->product_availability }}</td>

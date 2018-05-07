@@ -31,31 +31,31 @@
         </thead>
         <tbody>
             @foreach($deals as $deals)
-            <tr>
-                <td>{{ $deals->title }}</td>
-                <td>{{ $deals->price_old }}</td>
-                <td>{{ $deals->price }}</td>
-                <td>
-                    <a target="blank" href="{{ $deals->url }}">{{ $deals->url }}</a>
-                </td>
-                <td>{{ $deals->report }}</td>
-                <td>{{ $deals->store->name }}</td>
-                <td>
-                    {{ Form::open(['route' => ['deals.destroy', $deals->id], 'method' => 'delete']) }}
-                    <div class="btn-group d-flex justify-content-center" role="group">
-                        <a href="{{ route('deals.show', [$deals->id]) }}" class="btn btn-outline-secondary btn-sm">
-                            <i class="fas fa-eye"></i>
-                        </a>
-                        <a href="{{ route('deals.edit', [$deals->id]) }}" class="btn btn-outline-secondary btn-sm">
-                            <i class="fas fa-edit"></i>
-                        </a>
-                        {{ Form::button('
-                        <i class="fas fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-outline-danger btn-sm', 'onclick' => "return confirm('Are
-                        you sure?')"]) }}
-                    </div>
-                    {{ Form::close() }}
-                </td>
-            </tr>
+                <tr>
+                    <td>{{ $deals->title }}</td>
+                    <td>{{ $deals->price_old }}</td>
+                    <td>{{ $deals->price }}</td>
+                    <td>
+                        <a target="blank" href="{{ $deals->url }}">{{ $deals->url }}</a>
+                    </td>
+                    <td>{{ $deals->report }}</td>
+                    <td>{{ $deals->store->name }}</td>
+                    <td>
+                        {{ Form::open(['route' => ['deals.destroy', $deals->id], 'method' => 'delete']) }}
+                        <div class="btn-group d-flex justify-content-center" role="group">
+                            <a href="{{ route('deals.show', [$deals->id]) }}" class="btn btn-outline-secondary btn-sm">
+                                <i class="fas fa-eye"></i>
+                            </a>
+                            <a href="{{ route('deals.edit', [$deals->id]) }}" class="btn btn-outline-secondary btn-sm">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                            {{ Form::button('
+                            <i class="fas fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-outline-danger btn-sm', 'onclick' => "return confirm('Are
+                            you sure?')"]) }}
+                        </div>
+                        {{ Form::close() }}
+                    </td>
+                </tr>
             @endforeach
         </tbody>
         {{--

@@ -26,24 +26,19 @@ Route::patch( 'users/{user}/update',  [ 'as' => 'users.update', 'uses' => 'UserC
 
 Route::get( '/verify/token/{token}', 'Auth\VerificationController@verify' )->name( 'auth.verify' );
 Route::get( '/verify/resend', 'Auth\VerificationController@resend' )->name( 'auth.verify.resend' );
+Route::get( '/home', 'HomeController@index' );
 
-
-Route::get('/home', 'HomeController@index');
-
-Route::resource('brands', 'BrandController');
-
-Route::resource('coupons', 'CouponController');
-
-Route::resource( 'stores', 'StoreController' );
-
-Route::resource( 'priceAlerts', 'PriceAlertController' );
-
-Route::resource( 'deals', 'DealsController' );
-
-Route::resource( 'advertisements', 'AdvertisementController' );
-
-Route::resource( 'smartphones', 'SmartphoneController' );
-
-Route::resource( 'tablets', 'TabletController' );
+Route::middleware( [ 'is_admin' ] )->group( function() {
+    Route::prefix( 'admin' )->group( function() {
+        Route::resource( 'brands', 'BrandController' );
+        Route::resource( 'coupons', 'CouponController' );
+        Route::resource( 'stores', 'StoreController' );
+        Route::resource( 'priceAlerts', 'PriceAlertController' );
+        Route::resource( 'deals', 'DealsController' );
+        Route::resource( 'advertisements', 'AdvertisementController' );
+        Route::resource( 'smartphones', 'SmartphoneController' );
+        Route::resource( 'tablets', 'TabletController' );
+    });
+});
 
 Route::resource( 'comments', 'CommentController' );

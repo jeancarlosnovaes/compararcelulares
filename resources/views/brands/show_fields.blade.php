@@ -12,7 +12,7 @@
             <tr>
                 <td>{{ $brand->name }}</td>
                 <td>{{ $brand->description }}</td>
-                <td><img src="{{ $brand->logo }}" alt="{{ $brand->name }}"></td>
+                <td><img src="../{{ $brand->logo }}" alt="{{ $brand->name }}"></td>
                 <td>{{ $brand->count }}</td>
             </tr>
         </tbody>

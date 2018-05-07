@@ -117,7 +117,7 @@
             @foreach($smartphones as $smartphone)
             <tr>
                 <td>{{ $smartphone->product_name }}</td>
-                <td><img src="{{ $smartphone->product_image }}" alt="{{ $smartphone->product_name }}"></td>
+                <td><img src="../{{ $smartphone->product_image }}" alt="{{ $smartphone->product_name }}"></td>
                 <td>{{ $smartphone->product_description }}</td>
                 <td>{{ $smartphone->brand->name}}</td>
                 <td>{{ $smartphone->product_availability }}</td>

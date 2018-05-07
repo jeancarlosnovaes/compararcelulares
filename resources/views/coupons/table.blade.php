@@ -21,7 +21,7 @@
             <tr>
                 <td>{{ $coupon->title }}</td>
                 <td>{{ $coupon->description }}</td>
-                <td><img src="{{ $coupon->image }}" alt="{{ $coupon->titte }}"></td>
+                <td><img src="../{{ $coupon->image }}" alt="{{ $coupon->titte }}"></td>
                 <td><a href="{{ $coupon->url }}">{{ $coupon->url }}</a></td>
                 <td>{{ $coupon->code }}</td>
                 <td>{{ $coupon->discount }}</td>

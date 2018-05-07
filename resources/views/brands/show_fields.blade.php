@@ -1,5 +1,5 @@
 <div class="table-responsive">
-    <table class="table table-bordered table-hover" id="brand-table">
+    <table class="table table-bordered table-hover" id="brands-table">
         <thead>
             <tr>
                 <th>Name</th>
@@ -12,7 +12,7 @@
             <tr>
                 <td>{{ $brand->name }}</td>
                 <td>{{ $brand->description }}</td>
-                <td><img src="{{ $brand->logo }}" alt="{{ $brand->name }}"></td>
+                <td><img src="../storage/img/{{ $brand->logo }}" alt="{{ $brand->name }}"></td>
                 <td>{{ $brand->count }}</td>
             </tr>
         </tbody>

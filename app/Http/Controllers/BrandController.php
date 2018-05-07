@@ -11,6 +11,9 @@ use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 
+use Illuminate\Http\File;
+use Illuminate\Support\Facades\Storage;
+
 class BrandController extends AppBaseController {
     /** @var  BrandRepository */
     private $brandRepository;
@@ -50,11 +53,23 @@ class BrandController extends AppBaseController {
      * @return Response
      */
     public function store( CreateBrandRequest $request ) {
-        $input = $request->all();
+        try{
+            if ( $request->hasFile( 'logo' ) && $request->file( 'logo' )->isValid() ) {
+                $originalName = $request->file( 'logo' )->getClientOriginalName();
+                $nameWithoutSpace = preg_replace( '/\s+/', '-', $originalName );
+                $request->logo->storeAs( 'storage', $nameWithoutSpace );
+                $input = $request->all();
+                $input[ 'logo' ] = $nameWithoutSpace;
+                $brand = $this->brandRepository->create( $input );
+                $messagem = "Brand saved successfully.";
+            }
+                 
+        } catch ( Exception $e ) {
+            $e->getMessage();
+            $message = "Error " . $e->getMessage(); 
+        }
 
-        $brand = $this->brandRepository->create( $input );
-
-        Flash::success( 'Brand saved successfully.' );
+        Flash::success( $messagem );
 
         return redirect( route( 'brands.index' ) );
     }
@@ -106,6 +121,7 @@ class BrandController extends AppBaseController {
      * @return Response
      */
     public function update( $id, UpdateBrandRequest $request ) {
+
         $brand = $this->brandRepository->findWithoutFail( $id );
 
         if ( empty( $brand ) ) {
@@ -113,10 +129,26 @@ class BrandController extends AppBaseController {
 
             return redirect( route( 'brands.index' ) );
         }
+       
+        try{
+            if ( $request->hasFile( 'logo' ) && $request->file( 'logo' )->isValid() ) {
+                $originalName = $request->file( 'logo' )->getClientOriginalName();
+                $nameWithoutSpace = preg_replace( '/\s+/', '-', $originalName );
+                $path = 'storage' . date( 'm' );
+                $request->file( 'logo' )->storeAs( 'storage', $nameWithoutSpace, 'public' );
+                // dd($oi);
+                $input = $request->all();
+                $input[ 'logo' ] = $nameWithoutSpace;
+                $brand = $this->brandRepository->update( $input, $id );
+                $messagem = "Brand saved successfully.";
+            }
+                 
+        } catch ( Exception $e ) {
+            $e->getMessage();
+            $message = "Error " . $e->getMessage(); 
+        }
 
-        $brand = $this->brandRepository->update( $request->all(), $id );
-
-        Flash::success( 'Brand updated successfully.' );
+        Flash::success( $messagem );
 
         return redirect( route( 'brands.index' ) );
     }

@@ -32,7 +32,7 @@ class Handler extends ExceptionHandler {
      * @return void
      */
     public function report( Exception $exception ) {
-        parent::report($exception);
+        parent::report( $exception );
     }
 
     /**
@@ -42,8 +42,10 @@ class Handler extends ExceptionHandler {
      * @param  \Exception  $exception
      * @return \Illuminate\Http\Response
      */
-    public function render($request, Exception $exception)
-    {
-        return parent::render($request, $exception);
+    public function render( $request, Exception $exception ) {
+        if( $exception instanceof HttpResponseException ) {
+            return response()->view( 'errors.custom', [], $exception.getStatusCode() );
+        }
+        return parent::render( $request, $exception );
     }
 }

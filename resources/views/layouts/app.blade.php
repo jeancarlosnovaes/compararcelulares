@@ -81,40 +81,47 @@
             color: #888;
             text-align: center;
         }
+        .jumbotron {
+            margin-top: 2rem;
+        }
     </style>
 </head>
 
-<body class="hold-transition sidebar-mini">
-    @guest 
-    @include('layouts.navbar-logout')
+@guest 
+    <body class="sidebar-collapse">
+        @include('layouts.navbar-logout')
 
-    <div id="page-content-wrapper">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    @yield('content')
+        <div id="page-content-wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        @yield('content')
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    @else
-    <div class="wrapper">
-        @include('layouts.navbar-logged')
+        @include('layouts.footer')
+    </body>
+@else
+    <body class="hold-transition sidebar-mini">
+        <div class="wrapper">
+            @include('layouts.navbar-logged')
 
-        <!-- Left side column. contains the logo and sidebar -->
-        @include('layouts.sidebar-left')
-        <!-- Content Wrapper. Contains page content -->
-        <div class="content-wrapper">
-            <div class="container-fluid">
-                @yield('content')
+            <!-- Left side column. contains the logo and sidebar -->
+            @include('layouts.sidebar-left')
+            <!-- Content Wrapper. Contains page content -->
+            <div class="content-wrapper">
+                <div class="container-fluid">
+                    @yield('content')
+                </div>
             </div>
-        </div>
 
-        @include('layouts.sidebar-right')
-    </div>
-    @endguest 
-    @include('layouts.footer')
-</body>
+            @include('layouts.sidebar-right')
+        </div>
+        @include('layouts.footer')
+    </body>
+@endguest 
+
 <!-- Scripts -->
 <script src="{{ asset('js/app.js') }}" defer></script>
 

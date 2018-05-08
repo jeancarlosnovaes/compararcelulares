@@ -1,6 +1,6 @@
 <?php
 
 return [
-    'email' => 'publicidadenovaes@gmail.com',
+    'email' => 'jeancarlosnovaes@gmail.com',
     'name'  => 'Jean Carlos Novaes'
 ];

@@ -36,8 +36,8 @@
                 </div>
                 <div class="form-group">
                     <label for="password">Password</label>
-                    <input id="password" type="password" class="form-control form-control-lg{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" data-eye/>
-                    {{-- <small>Blank to keep the same password</small> --}}
+                    <input id="password" type="password" class="form-control form-control-lg{{ $errors->has( 'password') ? ' is-invalid' : '' }}" name="password" >
+                    <small>Blank to keep the same password</small>
                     @if ($errors->has('password'))
                         <span class="invalid-feedback">
                             <strong>{{ $errors->first('password') }}</strong>
@@ -45,9 +45,9 @@
                     @endif
                 </div>
                 <div class="form-group">
-                    <label for="password-confirmation">Password</label>
-                    <input id="password" type="password" class="form-control form-control-lg{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password_confirmation" data-eye/>
-                    @if ($errors->has('password'))
+                    <label for="password-confirm">Confirm Password</label>
+                    <input id="password-confirm" type="password" class="form-control form-control-lg{{ $errors->has( 'password_confirmation') ? ' is-invalid' : '' }}" name="password_confirmation" >
+                    @if ($errors->has('password_confirmation'))
                         <span class="invalid-feedback">
                             <strong>{{ $errors->first('password_confirmation') }}</strong>
                         </span>

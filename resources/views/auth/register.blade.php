@@ -59,7 +59,7 @@
 
 								<div class="form-group">
 									<label>
-										<input type="checkbox" name="aggree" value="1"> I agree to the Terms and Conditions
+										<input type="checkbox" name="aggree" value="1"> I agree to the <a href="#">Terms and Conditions</a>
 									</label>
 								</div>
 

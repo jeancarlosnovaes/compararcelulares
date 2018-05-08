@@ -29,6 +29,6 @@ class SendVerificationToken extends Mailable {
      * @return $this
      */
     public function build() {
-        return $this->subject( 'Please verify your email' )->markdown('auth.email.verification');
+        return $this->subject( 'Please verify your email' )->markdown('auth.emails.verification');
     }
 }

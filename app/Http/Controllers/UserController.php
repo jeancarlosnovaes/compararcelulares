@@ -19,7 +19,7 @@ class UserController extends Controller {
     }
 
     public function update( Request $request, User $user ) { 
-        if( $request->password == '' ) {
+        if( $request->password == '' && $request->password_confirmation == '' ) {
             $this->validate( $request, [
                 'name'      => 'required|min:3|max:50',
                 'email'     => 'required|email',
@@ -33,9 +33,10 @@ class UserController extends Controller {
         }else{
 
             $this->validate( $request, [
-                'name'      => 'required|min:3|max:50',
-                'email'     => 'required|email',
-                'password'  => 'required|confirmed|min:6'
+                'name'                  => 'required|min:3|max:50',
+                'email'                 => 'required|email',
+                'password'              => 'required|confirmed|min:6',
+                'password_confirmation' => 'required'
             ]);
 
             $user->name = $request->name;

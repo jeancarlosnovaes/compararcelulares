@@ -8,13 +8,13 @@ use App\User;
 
 class VerificationToken extends Model {
 
-    protected $fillable = ['token'];
+    protected $fillable = [ 'token' ];
     
     public function getRouteKeyName() {
         return 'token';
     }
 
     public function user() {
-	    return $this->belongsTo('App\User');
+	    return $this->belongsTo( 'App\User' );
     }
 }

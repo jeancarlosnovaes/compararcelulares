@@ -42,3 +42,6 @@ Route::middleware( [ 'is_admin' ] )->group( function() {
 });
 
 Route::resource( 'comments', 'CommentController' );
+
+Route::get('/contact', 'ContactController@show');
+Route::post('/contact',  'ContactController@mailToAdmin');

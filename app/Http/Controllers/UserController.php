@@ -18,34 +18,29 @@ class UserController extends Controller {
         return view( 'users.edit', compact( 'user' ) );
     }
 
-    public function update( User $user ) { 
-        if( Auth::user()->email == request( 'email' ) ) {
-            $this->validate( request(), [
-                'name' => 'required',
+    public function update( Request $request, User $user ) { 
+        if( $request->password == '' ) {
+            $this->validate( $request, [
+                'name'      => 'required|min:3|max:50',
+                'email'     => 'required|email',
             ]);
     
-            $user->name = request('name');
-
-            if( !$user->password == '') {
-                $user->password = bcrypt(request('password'));
-            }
-    
+            $user->name     = $request->name;
+            $user->email    = $request->email;    
             $user->save();
     
             return back()->with( 'status','User updated successfull' );
         }else{
 
-            $this->validate( request(), [
-                'name' => 'required',
-                'email' => 'required|email|unique:users',
+            $this->validate( $request, [
+                'name'      => 'required|min:3|max:50',
+                'email'     => 'required|email',
+                'password'  => 'required|confirmed|min:6'
             ]);
 
-            $user->name = request('name');
-            $user->email = request('email');
-            if( !$user->password == '') {
-                $user->password = bcrypt (request( 'password' ) );
-            }
-
+            $user->name = $request->name;
+            $user->email = $request->email;
+            $user->password = bcrypt( $request->password );
             $user->save();
 
             return back()->with( 'status','User updated successfull' );

@@ -4,6 +4,11 @@
     {{ Form::text('product_name', null, ['class' => 'form-control']) }}
 </div>
 
+<div class="form-group">
+    {{ Form::label('slug', 'Slug:') }}
+    {{ Form::text('slug', null, ['class' => 'form-control']) }}
+</div>
+
 <!-- Product Image Field -->
 <div class="form-group">
     {{ Form::label('product_image', 'Product Image:') }}

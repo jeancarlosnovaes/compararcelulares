@@ -14,6 +14,7 @@ class CreateSmartphonesTable extends Migration {
         Schema::create( 'smartphones', function ( Blueprint $table ) {
             $table->increments('id');
             $table->string('product_name');
+            $table->string( 'slug' );
             $table->string('product_image');
             $table->text('product_description');
             $table->integer('brand_id')->unsigned();

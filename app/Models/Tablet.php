@@ -562,6 +562,7 @@ class Tablet extends Model {
 
     public $fillable = [
         'product_name',
+        'slug'
         'product_image',
         'product_description',
         'brand_id',
@@ -678,6 +679,7 @@ class Tablet extends Model {
      */
     protected $casts = [
         'product_name' => 'string',
+        'slug' => 'string',
         'product_image' => 'string',
         'product_description' => 'string',
         'brand_id' => 'integer',

@@ -1,16 +1,5 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
 Route::get('/', function () {
     return view('welcome');
 });
@@ -41,6 +30,40 @@ Route::middleware( [ 'is_admin' ] )->group( function() {
         Route::resource( 'tablets', 'TabletController' );
     });
 });
+
+Route::get( 'marcas-de-celulares', [ 'as' => 'brands.index', 'uses' => 'BrandController@index' ] );
+Route::get( 'marcas-de-celulares/{slug}', [ 'as' => 'brands.brand', 'uses' => 'BrandController@getBrand' ] );
+Route::get( 'marcas-de-tablets', [ 'as' => 'brands.index', 'uses' => 'BrandController@index' ] );
+
+Route::get( 'cupons-de-descontos', [ 'as' => 'coupons.index', 'uses' => 'CouponController@index' ]  );
+Route::get( 'cupom-de-desconto/{cupom}', [ 'as' => 'coupons.coupon', 'uses' => 'CouponController@getCoupon' ]  );
+
+Route::get( 'ofertas', [ 'as' => 'deals.index', 'uses' => 'DealsController@index' ] );
+Route::get( 'oferta/{oferta}', [ 'as' => 'deals.deals', 'uses' => 'DealsController@getDeals' ] );
+
+Route::prefix( 'smartphone' )->group( function() {
+    Route::get( '{slug}', [ 'as' => 'smartphones.smartphone', 'uses' => 'SmartphoneController@getSmartphone' ] );
+});
+Route::get( 'smartphones' , [ 'as' => 'smartphones.index', 'uses' => 'SmartphoneController@index' ] );
+
+
+Route::prefix( 'tablet' )->group( function() {
+    Route::get( '{slug}', [ 'as'=> 'tablets.tablet', 'uses' => 'TabletController@getTablet' ] ); 
+});
+Route::get( 'tablets', [ 'as' => 'tablets.index', 'uses' => 'TabletController@index' ] );
+
+
+
+Route::prefix( 'comparar' )->group( function() {
+    Route::get( '{slug1}/vs/{slug2}', [ 'as' => 'compare.index', 'uses' => 'ControllerCompare@compareSmartphone' ] );  
+    Route::get( '{slug1}/vs/{slug2}/vs/{slug3}', [ 'as' => 'compare.index', 'uses' => 'ControllerCompare@compareSmartphone' ] );  
+    Route::get( '{slug1}/vs/{slug2}/vs/{slug3}/vs/{slug4}', [ 'as' => 'compare.index', 'uses' => 'ControllerCompare@compareSmartphone' ] );
+    
+    Route::get( '{slug1}/vs/{slug2}', [ 'as' => 'compare.index', 'uses' => 'ControllerCompare@compareTablet' ] );  
+    Route::get( '{slug1}/vs/{slug2}/vs/{slug3}', [ 'as' => 'compare.index', 'uses' => 'ControllerCompare@compareTablet' ] );  
+    Route::get( '{slug1}/vs/{slug2}/vs/{slug3}/vs/{slug4}', [ 'as' => 'compare.index', 'uses' => 'ControllerCompare@compareTablet' ] );
+});
+
 
 Route::resource( 'comments', 'CommentController' );
 

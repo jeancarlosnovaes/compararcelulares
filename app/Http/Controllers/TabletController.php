@@ -21,6 +21,10 @@ class TabletController extends AppBaseController {
         $this->tabletRepository = $tabletRepo;
     }
 
+    public function getTablet( $id ) {
+        return Tablet::where( 'id', $id );
+    }
+
     /**
      * Display a listing of the Tablet.
      *

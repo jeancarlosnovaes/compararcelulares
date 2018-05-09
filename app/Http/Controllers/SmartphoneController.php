@@ -21,6 +21,10 @@ class SmartphoneController extends AppBaseController {
         $this->smartphoneRepository = $smartphoneRepo;
     }
 
+    public function getSmartphone( $id ) {
+        return Smartphone::where( 'id', $id );
+    }
+
     /**
      * Display a listing of the Smartphone.
      *

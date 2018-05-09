@@ -21,7 +21,7 @@ class CreateCouponsTable extends Migration {
             $table->string('discount', 20);
             $table->date('start_date');
             $table->date('end_date');
-            $table->json('category');
+            $table->string('category', 50);
             $table->integer('vote_yes')->unsigned();
             $table->integer('vote_no')->unsigned();
             $table->timestamps();

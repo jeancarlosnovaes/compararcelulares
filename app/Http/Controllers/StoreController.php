@@ -54,8 +54,9 @@ class StoreController extends AppBaseController {
             if ( $request->hasFile( 'logo' ) && $request->file( 'logo' )->isValid() ) {
                 $originalName = $request->file( 'logo' )->getClientOriginalName();
                 $nameWithoutSpace = preg_replace( '/\s+/', '-', $originalName );
+                $nameLowerCase = strtolower( $nameWithoutSpace );
                 $month = date('F-Y');
-                $path = $request->file( 'logo' )->storeAs( $month, $nameWithoutSpace, 'public' );
+                $path = $request->file( 'logo' )->storeAs( $month, $nameLowerCase, 'public' );
                 $input = $request->all();
                 $input[ 'logo' ] = 'storage/' . $path;
                 $store = $this->storeRepository->create( $input );
@@ -131,8 +132,9 @@ class StoreController extends AppBaseController {
             if ( $request->hasFile( 'logo' ) && $request->file( 'logo' )->isValid() ) {
                 $originalName = $request->file( 'logo' )->getClientOriginalName();
                 $nameWithoutSpace = preg_replace( '/\s+/', '-', $originalName );
+                $nameLowerCase = strtolower( $nameWithoutSpace );
                 $month = date('F-Y');
-                $path = $request->file( 'logo' )->storeAs( $month, $nameWithoutSpace, 'public' );
+                $path = $request->file( 'logo' )->storeAs( $month, $nameLowerCase, 'public' );
                 $input = $request->all();
                 $input[ 'logo' ] = 'storage/' . $path;
                 $store = $this->storeRepository->update( $input, $id );

@@ -81,9 +81,19 @@
             color: #888;
             text-align: center;
         }
+
         .jumbotron {
             margin-top: 2rem;
         }
+        
+        .content-wrapper {
+            margin-bottom: 1rem;
+        }
+        table img {
+            max-width: 122px;
+            max-height: 40px;
+        }
+
     </style>
 </head>
 

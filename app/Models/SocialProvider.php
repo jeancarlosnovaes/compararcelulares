@@ -9,6 +9,10 @@ class SocialProvider extends Model {
         'provider_id', 'provider',
     ];
 
+    public function setUpdatedAtAttribute() {
+        $this->updated_at = false;
+    }
+
     function user() {
         return $this->belongsTo( 'App\User' );
     }

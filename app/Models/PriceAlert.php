@@ -92,6 +92,6 @@ class PriceAlert extends Model {
      * @var array
      */
     public static $rules = [
-        'email' => 'required|string|email|max:255|unique:users'
+        'email' => 'required|string|email|max:255'
     ];
 }

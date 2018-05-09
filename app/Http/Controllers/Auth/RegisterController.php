@@ -8,7 +8,9 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
+use App\Models\SocialProvider;
 use Illuminate\Http\Request;
+use Socialite;
 
 class RegisterController extends Controller {
     /*

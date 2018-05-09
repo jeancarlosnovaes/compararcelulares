@@ -50,7 +50,7 @@
 <!-- Category Field -->
 <div class="form-group">
     {{ Form::label('category', 'Category:') }}
-    {{ Form::select('category', [ 'Cupom de Desconto', 'Link de Desconto' ], null, ['class' => 'form-control']) }}
+    {{ Form::select('category', [ 'Cupom de Desconto' => 'Cupom de Desconto', 'Link de Desconto' => 'Link de Desconto' ], null, ['class' => 'form-control']) }}
 </div>
 
 <!-- Submit Field -->

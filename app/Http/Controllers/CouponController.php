@@ -57,7 +57,8 @@ class CouponController extends AppBaseController {
                 $originalName = $request->file( 'image' )->getClientOriginalName();
                 $nameWithoutSpace = preg_replace( '/\s+/', '-', $originalName );
                 $month = date('F-Y');
-                $path = $request->file( 'image' )->storeAs( $month, $nameWithoutSpace, 'public' );
+                $nameLowerCase = strtolower( $nameWithoutSpace );
+                $path = $request->file( 'image' )->storeAs( $month, $nameLowerCase, 'public' );
                 $input = $request->all();
                 $input[ 'image' ] = 'storage/' . $path;
                 $input[ 'vote_yes' ] = 0;
@@ -135,7 +136,8 @@ class CouponController extends AppBaseController {
                 $originalName = $request->file( 'image' )->getClientOriginalName();
                 $nameWithoutSpace = preg_replace( '/\s+/', '-', $originalName );
                 $month = date('F-Y');
-                $path = $request->file( 'image' )->storeAs( $month, $nameWithoutSpace, 'public' );
+                $nameLowerCase = strtolower( $nameWithoutSpace );
+                $path = $request->file( 'image' )->storeAs( $month, $nameLowerCase, 'uploads' );
                 $input = $request->all();
                 $input[ 'image' ] = 'storage/' . $path;
                 $coupon = $this->couponRepository->update( $input, $id );

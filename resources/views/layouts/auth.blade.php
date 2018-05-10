@@ -89,6 +89,11 @@
             color: #888;
             text-align: center;
         }
+
+        .btn-twitter {
+            background-color: #1da1f2;
+            color: #fff;
+        }
     </style>
 </head>
 

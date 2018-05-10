@@ -93,7 +93,6 @@
             max-width: 122px;
             max-height: 40px;
         }
-
     </style>
 </head>
 

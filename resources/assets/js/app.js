@@ -8,7 +8,7 @@
 require('./bootstrap');
 require('admin-lte/build/js/AdminLTE.js');
 require('admin-lte/build/js/Layout.js');
-require('./custom')
+require('./custom');
 // require('admin-lte/build/npm/Publish.js');
 // window.Vue = require('vue');
 

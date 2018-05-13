@@ -19425,7 +19425,7 @@ readers do not read off random characters that represent icons */
   font-style: normal;
   font-weight: 900;
   src: url(/fonts/fa-solid-900.eot?0d38abcb91b2dd56e8babd915233caca);
-  src: url(/fonts/fa-solid-900.eot?0d38abcb91b2dd56e8babd915233caca) format("embedded-opentype"), url(/fonts/fa-solid-900.woff2?62e224193aeed0b428e83d1cccfd6d91) format("woff2"), url(/fonts/fa-solid-900.woff?68b7c2849c46507aef459d047d5e7696) format("woff"), url(/fonts/fa-solid-900.ttf?ba67efc77a5fe272922aebf9d42ad1da) format("truetype"), url(/fonts/fa-solid-900.svg?7bc0b08bd858d78a561191a308e0bcd4) format("svg");
+  src: url(/fonts/fa-solid-900.eot?0d38abcb91b2dd56e8babd915233caca) format("embedded-opentype"), url(/fonts/fa-solid-900.woff2?62e224193aeed0b428e83d1cccfd6d91) format("woff2"), url(/fonts/fa-solid-900.woff?68b7c2849c46507aef459d047d5e7696) format("woff"), url(/fonts/fa-solid-900.ttf?ba67efc77a5fe272922aebf9d42ad1da) format("truetype"), url(/fonts/fa-solid-900.svg?df1cb13586fde1cbcf1c34736ce3afe3) format("svg");
 }
 
 .fa,
@@ -19445,7 +19445,7 @@ readers do not read off random characters that represent icons */
   font-style: normal;
   font-weight: 400;
   src: url(/fonts/fa-regular-400.eot?a5e47772ae220b65945186a7532411af);
-  src: url(/fonts/fa-regular-400.eot?a5e47772ae220b65945186a7532411af) format("embedded-opentype"), url(/fonts/fa-regular-400.woff2?779d7ea0b9f54514b905e24343e71c4e) format("woff2"), url(/fonts/fa-regular-400.woff?5cf78fbc2341f5fac935bf17dcf5e84e) format("woff"), url(/fonts/fa-regular-400.ttf?2ed38dbad5ce736060bb41f229eb2dce) format("truetype"), url(/fonts/fa-regular-400.svg?7e62ee01f6e4e617ddfa13b70d925a5a) format("svg");
+  src: url(/fonts/fa-regular-400.eot?a5e47772ae220b65945186a7532411af) format("embedded-opentype"), url(/fonts/fa-regular-400.woff2?779d7ea0b9f54514b905e24343e71c4e) format("woff2"), url(/fonts/fa-regular-400.woff?5cf78fbc2341f5fac935bf17dcf5e84e) format("woff"), url(/fonts/fa-regular-400.ttf?2ed38dbad5ce736060bb41f229eb2dce) format("truetype"), url(/fonts/fa-regular-400.svg?bc1f1ff8b7a551f1c19fb1f4ef55e118) format("svg");
 }
 
 .far {
@@ -19463,7 +19463,7 @@ readers do not read off random characters that represent icons */
   font-style: normal;
   font-weight: normal;
   src: url(/fonts/fa-brands-400.eot?f384cdc0b0ee351ae21dc896031c40d6);
-  src: url(/fonts/fa-brands-400.eot?f384cdc0b0ee351ae21dc896031c40d6) format("embedded-opentype"), url(/fonts/fa-brands-400.woff2?5ac8c4fec34fe5e740ab560e4a90240b) format("woff2"), url(/fonts/fa-brands-400.woff?1dae819a32feafdc34fea670ab758519) format("woff"), url(/fonts/fa-brands-400.ttf?31b5f53e002d3212b7f1ae50cd1d31dc) format("truetype"), url(/fonts/fa-brands-400.svg?3619e4601d77994662036eb903b64eee) format("svg");
+  src: url(/fonts/fa-brands-400.eot?f384cdc0b0ee351ae21dc896031c40d6) format("embedded-opentype"), url(/fonts/fa-brands-400.woff2?5ac8c4fec34fe5e740ab560e4a90240b) format("woff2"), url(/fonts/fa-brands-400.woff?1dae819a32feafdc34fea670ab758519) format("woff"), url(/fonts/fa-brands-400.ttf?31b5f53e002d3212b7f1ae50cd1d31dc) format("truetype"), url(/fonts/fa-brands-400.svg?55bf7995a0edd76e6c97c1940690eb88) format("svg");
 }
 
 .fab,
@@ -19499,5 +19499,9 @@ readers do not read off random characters that represent icons */
 
 .twitter:before {
   content: "\F099";
+}
+
+.brand-widget {
+  padding: 40px 0 40px 0;
 }
 

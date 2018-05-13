@@ -40,6 +40,21 @@ class TabletController extends AppBaseController {
     }
 
     /**
+     * Display a listing of the Tablet.
+     *
+     * @param Request $request
+     * @return Response
+     */
+    public function getAllTablets( Request $request ) {
+        $this->tabletRepository->pushCriteria( new RequestCriteria( $request ) );
+        $tablets = $this->tabletRepository->paginate(20);
+
+        return view( 'tablets.tablet' )
+            ->with( 'tablets', $tablets );
+    }
+
+
+    /**
      * Show the form for creating a new Tablet.
      *
      * @return Response

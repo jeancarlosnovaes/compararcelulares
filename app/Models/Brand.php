@@ -21,6 +21,11 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  *          type="string"
  *      ),
  *      @SWG\Property(
+ *          property="slug",
+ *          description="slug",
+ *          type="string"
+ *      ),
+ *      @SWG\Property(
  *          property="description",
  *          description="description",
  *          type="string"
@@ -61,6 +66,7 @@ class Brand extends Model {
 
     public $fillable = [
         'name',
+        'slug',
         'description',
         'logo',
         'count'
@@ -73,6 +79,7 @@ class Brand extends Model {
      */
     protected $casts = [
         'name' => 'string',
+        'slug' => 'string',
         'description' => 'string',
         'logo' => 'string',
         'count' => 'integer'

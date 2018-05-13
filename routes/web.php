@@ -31,9 +31,11 @@ Route::middleware( [ 'is_admin' ] )->group( function() {
     });
 });
 
-Route::get( 'marcas-de-celulares', [ 'as' => 'brands.index', 'uses' => 'BrandController@index' ] );
-Route::get( 'marcas-de-celulares/{slug}', [ 'as' => 'brands.brand', 'uses' => 'BrandController@getBrand' ] );
-Route::get( 'marcas-de-tablets', [ 'as' => 'brands.index', 'uses' => 'BrandController@index' ] );
+
+Route::get( 'marcas-de-celulares', [ 'as' => 'brands.brand', 'uses' => 'BrandController@getAllBrands' ] );
+Route::get( 'marcas-de-celulares/{brand}', [ 'as' => 'smartphones.smartphone', 'uses' => 'SmartphoneController@getAllSmartphones' ] );
+Route::get( 'marcas-de-tablets', [ 'as' => 'brands.index', 'uses' => 'BrandController@index' ] );;
+Route::get( 'marcas-de-tablets/{brand}', [ 'as' => 'tablets.tablet', 'uses' => 'BrandController@index' ] );
 
 Route::get( 'cupons-de-descontos', [ 'as' => 'coupons.index', 'uses' => 'CouponController@index' ]  );
 Route::get( 'cupom-de-desconto/{cupom}', [ 'as' => 'coupons.coupon', 'uses' => 'CouponController@getCoupon' ]  );

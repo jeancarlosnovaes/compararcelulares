@@ -34,6 +34,20 @@ class StoreController extends AppBaseController {
     }
 
     /**
+     * Display a listing of the Store.
+     *
+     * @param Request $request
+     * @return Response
+     */
+    public function getAllStores( Request $request ) {
+        $this->storeRepository->pushCriteria( new RequestCriteria( $request ) );
+        $stores = $this->storeRepository->paginate(20);
+
+        return view( 'stores.store' )
+            ->with( 'stores', $stores );
+    }
+
+    /**
      * Show the form for creating a new Store.
      *
      * @return Response

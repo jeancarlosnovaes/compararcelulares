@@ -35,6 +35,20 @@ class DealsController extends AppBaseController {
     }
 
     /**
+     * Display a listing of the Deals.
+     *
+     * @param Request $request
+     * @return Response
+     */
+    public function getAllDeals( Request $request ) {
+        $this->dealsRepository->pushCriteria( new RequestCriteria( $request ) );
+        $deals = $this->dealsRepository->paginate(20);
+
+        return view( 'deals.deals' )
+            ->with( 'dealss', $deals );
+    }
+
+    /**
      * Show the form for creating a new Deals.
      *
      * @return Response

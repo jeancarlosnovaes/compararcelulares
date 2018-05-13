@@ -39,6 +39,21 @@ class SmartphoneController extends AppBaseController {
             ->with( 'smartphones', $smartphones );
     }
 
+    
+    /**
+     * Display a listing of the Smartphone.
+     *
+     * @param Request $request
+     * @return Response
+     */
+    public function getAllSmartphones( Request $request ) {
+        $this->smartphoneRepository->pushCriteria( new RequestCriteria( $request ) );
+        $smartphones = $this->smartphoneRepository->paginate(20);
+
+        return view( 'smartphones.smartphone' )
+            ->with( 'smartphones', $smartphones );
+    }
+
     /**
      * Show the form for creating a new Smartphone.
      *

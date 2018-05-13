@@ -36,6 +36,20 @@ class BrandController extends AppBaseController {
             ->with( 'brands', $brands );
     }
 
+     /**
+     * Display a listing of the Brand.
+     *
+     * @param Request $request
+     * @return Response
+     */
+    public function getAllBrands( Request $request ) {
+        $this->brandRepository->pushCriteria( new RequestCriteria( $request ) );
+        $brands = $this->brandRepository->paginate(20);
+
+        return view( 'brands.brand' )
+            ->with( 'brands', $brands );
+    }
+
     /**
      * Show the form for creating a new Brand.
      *
@@ -61,6 +75,8 @@ class BrandController extends AppBaseController {
                 $path = $request->file( 'logo' )->storeAs( $month, $nameWithoutSpace, 'public' );
                 $input = $request->all();
                 $input[ 'logo' ] = 'storage/' . $path;
+                $tmpName = preg_replace( '/\s+/', '-', $input[ 'name' ] );
+                $input[ 'slug' ] = strtolower( $tmpName );
                 $brand = $this->brandRepository->create( $input );
                 $message = "Brand saved successfully.";
             }
@@ -140,6 +156,8 @@ class BrandController extends AppBaseController {
                 // dd($oi);
                 $input = $request->all();
                 $input[ 'logo' ] = 'storage/' . $path;
+                $tmpName = preg_replace( '/\s+/', '-', $input[ 'name' ] );
+                $input[ 'slug' ] = strtolower( $tmpName );
                 $brand = $this->brandRepository->update( $input, $id );
                 $message = "Brand saved successfully.";
             }

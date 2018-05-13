@@ -60,6 +60,18 @@
 									Don't have an account? <a href="{{ route('register') }}">Create One</a>
 								</div>
 							</form>
+							<div class="social-auth-links text-center mb-3">
+								<p>- OR -</p>
+								<a href="/auth/facebook" class="btn btn-primary btn-block">
+								  	<i class="fab fa-facebook-f mr-2"></i> Sign in using Facebook
+								</a>
+								<a href="/auth/google" class="btn btn-danger btn-block">
+								 	<i class="fab fa-google-plus-g mr-2"></i> Sign in using Google+
+								</a>
+								<a href="/auth/twitter" class="btn btn-twitter btn-block">
+								 	<i class="fab fa-twitter mr-2"></i> Sign in using Twitter
+								</a>
+							</div>
 						</div>
 					</div>
 					<div class="footer">

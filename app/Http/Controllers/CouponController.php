@@ -36,6 +36,20 @@ class CouponController extends AppBaseController {
     }
 
     /**
+     * Display a listing of the Coupon.
+     *
+     * @param Request $request
+     * @return Response
+     */
+    public function getAllCoupons( Request $request ) {
+        $this->couponRepository->pushCriteria( new RequestCriteria( $request ) );
+        $coupons = $this->couponRepository->paginate(20);
+
+        return view( 'coupons.coupon' )
+            ->with( 'coupons', $coupons );
+    }
+
+    /**
      * Show the form for creating a new Coupon.
      *
      * @return Response

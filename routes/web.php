@@ -32,14 +32,16 @@ Route::middleware( [ 'is_admin' ] )->group( function() {
 });
 
 
-Route::get( 'marcas-de-celulares', [ 'as' => 'brands.brand', 'uses' => 'BrandController@getAllBrands' ] );
+Route::get( 'marcas-de-celulares', [ 'as' => 'brands.brand-smartphone', 'uses' => 'BrandController@getAllBrandsSmartphones' ] );
 Route::get( 'marcas-de-celulares/{brand}', [ 'as' => 'smartphones.all-smartphones', 'uses' => 'SmartphoneController@getAllSmartphones' ] );
 Route::get( 'smartphones/{brand}/{slug}' , [ 'as' => 'smartphones.smartphone', 'uses' => 'SmartphoneController@getSmartphone' ] );
-Route::get( 'marcas-de-tablets', [ 'as' => 'brands.index', 'uses' => 'BrandController@index' ] );;
-Route::get( 'marcas-de-tablets/{brand}', [ 'as' => 'tablets.tablet', 'uses' => 'BrandController@index' ] );
+
+Route::get( 'marcas-de-tablets', [ 'as' => 'brands.brand-tablet', 'uses' => 'BrandController@getAllBrandsTablets' ] );;
+Route::get( 'marcas-de-tablets/{brand}', [ 'as' => 'tablets.all-tablets', 'uses' => 'TabletController@getAllTablets' ] );
+Route::get( 'smartphones/{brand}/{slug}' , [ 'as' => 'tablets.tablet', 'uses' => 'SmartphoneController@getTablet' ] );
 
 
-Route::get( 'cupons-de-descontos', [ 'as' => 'coupons.index', 'uses' => 'CouponController@index' ]  );
+Route::get( 'cupons-de-descontos', [ 'as' => 'coupons.coupon', 'uses' => 'CouponController@getAllCoupons' ]  );
 Route::get( 'cupom-de-desconto/{cupom}', [ 'as' => 'coupons.coupon', 'uses' => 'CouponController@getCoupon' ]  );
 
 // Route::get( 'ofertas', [ 'as' => 'deals.index', 'uses' => 'DealsController@index' ] );

@@ -42,11 +42,19 @@ class BrandController extends AppBaseController {
      * @param Request $request
      * @return Response
      */
-    public function getAllBrands( Request $request ) {
+    public function getAllBrandsTablets( Request $request ) {
         $this->brandRepository->pushCriteria( new RequestCriteria( $request ) );
         $brands = $this->brandRepository->paginate(20);
 
-        return view( 'brands.brand' )
+        return view( 'brands.brand-tablet' )
+            ->with( 'brands', $brands );
+    }
+
+    public function getAllBrandsSmartphones( Request $request ) {
+        $this->brandRepository->pushCriteria( new RequestCriteria( $request ) );
+        $brands = $this->brandRepository->paginate(20);
+
+        return view( 'brands.brand-smartphone' )
             ->with( 'brands', $brands );
     }
 
@@ -153,7 +161,6 @@ class BrandController extends AppBaseController {
                 $nameWithoutSpace = preg_replace( '/\s+/', '-', $originalName );
                 $month = date('F-Y');
                 $path = $request->file( 'logo' )->storeAs(  $month, $nameWithoutSpace, 'public' );
-                // dd($oi);
                 $input = $request->all();
                 $input[ 'logo' ] = 'storage/' . $path;
                 $tmpName = preg_replace( '/\s+/', '-', $input[ 'name' ] );

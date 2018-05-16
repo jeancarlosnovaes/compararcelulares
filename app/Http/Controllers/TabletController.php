@@ -49,7 +49,7 @@ class TabletController extends AppBaseController {
         $this->tabletRepository->pushCriteria( new RequestCriteria( $request ) );
         $tablets = $this->tabletRepository->paginate(20);
 
-        return view( 'tablets.tablet' )
+        return view( 'tablets.all-tablets' )
             ->with( 'tablets', $tablets );
     }
 
@@ -81,6 +81,7 @@ class TabletController extends AppBaseController {
                 $path = $request->file( 'image' )->storeAs( $month, $nameWithoutSpace, 'public' );
                 $input = $request->all();
                 $input[ 'image' ] = 'storage/' . $path;
+                Brand::setCountTablet();
                 $tablet = $this->tabletRepository->create( $input );
                 $message = "Tablet saved successfully.";
             }

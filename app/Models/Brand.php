@@ -69,7 +69,8 @@ class Brand extends Model {
         'slug',
         'description',
         'logo',
-        'count'
+        'countSmartphone',
+        'countTablet'
     ];
 
     /**
@@ -91,7 +92,8 @@ class Brand extends Model {
      * @var array
      */
     protected $attributes = [
-        'count' => 0
+        'countTablet' => 0,
+        'countSmartphone' => 0
     ];
 
     /**
@@ -110,5 +112,13 @@ class Brand extends Model {
 
     public function tablet() {
         return $this->hasMany( 'App\Models\Tablet' );
+    }
+
+    public function setCountTablet() {
+        $this->countTablet++;
+    }
+
+    public function setCountSmartphone() {
+        $this->countSmartphone++;
     }
 }

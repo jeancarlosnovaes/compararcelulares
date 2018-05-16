@@ -17,7 +17,8 @@ class CreateBrandsTable extends Migration {
             $table->string( 'slug', 20 );
             $table->text('description');
             $table->string('logo');
-            $table->integer('count')->unsigned();
+            $table->integer('countTablet')->unsigned();
+            $table->integer('countSmartphone')->unsigned();
             $table->timestamps();
             $table->softDeletes();
         });

@@ -85,6 +85,7 @@ class SmartphoneController extends AppBaseController {
                 $path = $request->file( 'product_image' )->storeAs( $month, $nameWithoutSpace, 'public' );
                 $input = $request->all();
                 $input[ 'product_image' ] = 'storage/' . $path;
+                Brand::setCountSmartphone();
                 $smartphone = $this->smartphoneRepository->create( $input );
                 $message = "Smartphone saved successfully.";
             }else{

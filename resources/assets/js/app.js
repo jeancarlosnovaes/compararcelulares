@@ -7,7 +7,7 @@
 
 require( './bootstrap' );
 require( 'admin-lte/build/js/AdminLTE.js' );
-// require( 'chart.js/dist/Chart.js' );
+// require( 'chart.js/dist/Chart.min.js' );
 require('./custom' );
 // require('admin-lte/build/npm/Publish.js');
 // window.Vue = require('vue');

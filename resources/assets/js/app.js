@@ -5,10 +5,10 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-require('./bootstrap');
-require('admin-lte/build/js/AdminLTE.js');
-require('admin-lte/build/js/Layout.js');
-require('./custom');
+require( './bootstrap' );
+require( 'admin-lte/build/js/AdminLTE.js' );
+// require( 'chart.js/dist/Chart.js' );
+require('./custom' );
 // require('admin-lte/build/npm/Publish.js');
 // window.Vue = require('vue');
 

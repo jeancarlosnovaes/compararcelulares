@@ -557,7 +557,7 @@ class Smartphone extends Model {
 
     public $fillable = [
         'product_name',
-        'slug'.
+        'slug',
         'product_image',
         'product_description',
         'brand_id',

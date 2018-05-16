@@ -133,5 +133,73 @@
 
 <!-- Scripts -->
 <script src="{{ asset('js/app.js') }}" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+<script>
+            var ctx = document.getElementById( "myChart" ).getContext( '2d' );
+            var options = {
+                spanGaps: false,
+                decimals: 2,
+                elements: {
+                    line: {
+                        tension: 0
+                    }
+                },
+                tooltips: {
+                    mode: 'nearest',
+                    enabled: true,
+                    displayColors: false,
+                    bodyFontSize: 16,
+                    callbacks: {
+                        title: function() {
+
+                        },
+                        label: function( tooltipItem, data ) {
+                            var label = data.datasets[ tooltipItem.datasetIndex ].label || '';
+                            label += 'R$ ' + tooltipItem.yLabel.toFixed( 2 ) + ' em ' + tooltipItem.xLabel ;
+                            return label;
+                        }
+                    }
+                },
+                legend: {
+                    display: false
+                },
+                responsive: true,
+                scales: {
+                    // xAxes: [{
+                    //     ticks: {
+                    //         maxRotation:60,
+                    //         minRotation: 45
+                    //     }
+                    // }],
+                    yAxes: [{
+                        ticks: {
+                            suggestedMin: 50
+                        }
+                    }]
+                }
+            };
+
+            var data = {
+                labels: [ "14/04/2018", "24/04/2018", "30/04/2018", "10/05/2018", "14/05/2018", "15/05/2018" ],
+                datasets: [{
+                    spanGaps: true,
+                    pointStyle: 'circle',
+                    data: [ 1780.02, 1100.00, 1510.00, 1500.00, 1500.00, 1450.00 ],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255,99,132,1)'
+                    ],
+                    borderWidth: 5
+                }]
+            };
+
+            var myLineChart = new Chart(ctx, {
+                type: 'line',
+                data: data,
+                options: options
+            });
+        </script>
 
 </html>

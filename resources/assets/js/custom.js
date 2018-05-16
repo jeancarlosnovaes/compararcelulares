@@ -37,8 +37,9 @@
 // });
 
 
-$( '#product_name' ).change( function() {
-    var name = $( '#product_name' ).val().toLowerCase();
-    var nameWithoutSpace = name.replace(/\s/g,'-');
-    $( '#slug' ).val( nameWithoutSpace );
+$('#product_name').change(function () {
+    var name = $('#product_name').val().toLowerCase();
+    var nameWithoutSpace = name.replace(/\s/g, '-');
+    $('#slug').val(nameWithoutSpace);
 });
+

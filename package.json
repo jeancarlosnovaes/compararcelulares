@@ -28,6 +28,7 @@
         "admin-lte": "^3.0.0-alpha",
         "ajv": "^6.4.0",
         "ajv-keywords": "^3.2.0",
+        "chart.js": "^2.7.2",
         "copy-dir": "^0.3.0"
     }
 }

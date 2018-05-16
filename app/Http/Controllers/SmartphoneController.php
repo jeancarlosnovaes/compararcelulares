@@ -12,6 +12,7 @@ use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 
 use App\Models\Brand;
+use \App\Models\Smartphone;
 
 class SmartphoneController extends AppBaseController {
     /** @var  SmartphoneRepository */
@@ -21,8 +22,11 @@ class SmartphoneController extends AppBaseController {
         $this->smartphoneRepository = $smartphoneRepo;
     }
 
-    public function getSmartphone( $id ) {
-        return Smartphone::where( 'id', $id );
+    public function getSmartphone( $brand, $slug ) {
+        $smartphone = Smartphone::where( 'slug', $slug )->first();
+        // $smartphone[ '' ]
+        return view( 'smartphones.smartphone' )
+            ->with( 'smartphone', $smartphone );
     }
 
     /**
@@ -48,9 +52,9 @@ class SmartphoneController extends AppBaseController {
      */
     public function getAllSmartphones( Request $request ) {
         $this->smartphoneRepository->pushCriteria( new RequestCriteria( $request ) );
-        $smartphones = $this->smartphoneRepository->paginate(20);
+        $smartphones = $this->smartphoneRepository->all();
 
-        return view( 'smartphones.smartphone' )
+        return view( 'smartphones.all-smartphones' )
             ->with( 'smartphones', $smartphones );
     }
 
@@ -74,15 +78,17 @@ class SmartphoneController extends AppBaseController {
      */
     public function store( CreateSmartphoneRequest $request ) {
         try{
-            if ( $request->hasFile( 'image' ) && $request->file( 'image' )->isValid() ) {
-                $originalName = $request->file( 'image' )->getClientOriginalName();
+            if ( $request->hasFile( 'product_image' ) && $request->file( 'product_image' )->isValid() ) {
+                $originalName = $request->file( 'product_image' )->getClientOriginalName();
                 $nameWithoutSpace = preg_replace( '/\s+/', '-', $originalName );
                 $month = date('F-Y');
-                $path = $request->file( 'image' )->storeAs( $month, $nameWithoutSpace, 'public' );
+                $path = $request->file( 'product_image' )->storeAs( $month, $nameWithoutSpace, 'public' );
                 $input = $request->all();
-                $input[ 'image' ] = 'storage/' . $path;
+                $input[ 'product_image' ] = 'storage/' . $path;
                 $smartphone = $this->smartphoneRepository->create( $input );
                 $message = "Smartphone saved successfully.";
+            }else{
+                $message = "Smartphone don't saved.";
             }
            
         } catch ( Exception $e ) {
@@ -193,5 +199,9 @@ class SmartphoneController extends AppBaseController {
         Flash::success( 'Smartphone deleted successfully.' );
 
         return redirect( route( 'smartphones.index' ) );
+    }
+
+    public function getRouteKeyName() {
+        return 'slug';
     }
 }

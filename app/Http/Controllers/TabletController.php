@@ -85,6 +85,7 @@ class TabletController extends AppBaseController {
                 $tablet = $this->tabletRepository->create( $input );
                 $message = "Tablet saved successfully.";
             }
+            $message = "Tablet unsaved.";
            
         } catch ( Exception $e ) {
             $e->getMessage();
@@ -162,6 +163,7 @@ class TabletController extends AppBaseController {
                 $tablet = $this->tabletRepository->update( $input, $id );
                 $message = "Tablet saved successfully.";
             }
+            $message = "Tablet unsaved.";
            
         } catch ( Exception $e ) {
             $e->getMessage();

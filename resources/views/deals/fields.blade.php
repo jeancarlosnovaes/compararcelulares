@@ -4,6 +4,13 @@
     {{ Form::text('title', null, ['class' => 'form-control']) }}
 </div>
 
+<!-- Image Field -->
+<div class="form-group">
+    {{ Form::label('image', 'Image:') }}
+    {{ Form::file('image') }}
+</div>
+<div class="clearfix"></div>
+
 <!-- Description Field -->
 <div class="form-group">
     {{ Form::label('description', 'Description:') }}

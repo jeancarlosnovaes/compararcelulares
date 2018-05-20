@@ -42,22 +42,8 @@ Route::get( 'smartphones/{brand}/{slug}' , [ 'as' => 'tablets.tablet', 'uses' =>
 
 
 Route::get( 'cupons-de-descontos', [ 'as' => 'coupons.coupon', 'uses' => 'CouponController@getAllCoupons' ]  );
-Route::get( 'cupom-de-desconto/{cupom}', [ 'as' => 'coupons.coupon', 'uses' => 'CouponController@getCoupon' ]  );
 
-// Route::get( 'ofertas', [ 'as' => 'deals.index', 'uses' => 'DealsController@index' ] );
-// Route::get( 'oferta/{oferta}', [ 'as' => 'deals.deals', 'uses' => 'DealsController@getDeals' ] );
-
-// Route::prefix( 'smartphone' )->group( function() {
-//     Route::get( '{slug}', [ 'as' => 'smartphones.smartphone', 'uses' => 'SmartphoneController@getSmartphone' ] );
-// });
-// Route::get( 'smartphones' , [ 'as' => 'smartphones.index', 'uses' => 'SmartphoneController@index' ] );
-
-
-// Route::prefix( 'tablet' )->group( function() {
-//     Route::get( '{slug}', [ 'as'=> 'tablets.tablet', 'uses' => 'TabletController@getTablet' ] ); 
-// });
-// Route::get( 'tablets', [ 'as' => 'tablets.index', 'uses' => 'TabletController@index' ] );
-
+Route::get( 'ofertas', [ 'as' => 'deals.deals', 'uses' => 'DealsController@getAllDeals' ] );
 
 
 // Route::prefix( 'comparar' )->group( function() {

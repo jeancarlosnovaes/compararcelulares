@@ -45,7 +45,7 @@ class DealsController extends AppBaseController {
         $deals = $this->dealsRepository->paginate(20);
 
         return view( 'deals.deals' )
-            ->with( 'dealss', $deals );
+            ->with( 'deals', $deals );
     }
 
     /**
@@ -67,11 +67,25 @@ class DealsController extends AppBaseController {
      * @return Response
      */
     public function store( CreateDealsRequest $request ) {
-        $input = $request->all();
+        try{
+            if ( $request->hasFile( 'image' ) && $request->file( 'image' )->isValid() ) {
+                $originalName = $request->file( 'image' )->getClientOriginalName();
+                $nameWithoutSpace = preg_replace( '/\s+/', '-', $originalName );
+                $month = date('F-Y');
+                $path = $request->file( 'image' )->storeAs( $month, $nameWithoutSpace, 'public' );
+                $input = $request->all();
+                $input[ 'image' ] = 'storage/' . $path;
+                $deals = $this->dealsRepository->create( $input );
+                $message = "Deals saved successfully.";
+            }
+            $message = "Deals unsaved.";
+           
+        } catch ( Exception $e ) {
+            $e->getMessage();
+            $message = "Error " . $e->getMessage(); 
+        }
 
-        $deals = $this->dealsRepository->create( $input );
-
-        Flash::success( 'Deals saved successfully.' );
+        Flash::success( $message );
 
         return redirect( route( 'deals.index' ) );
     }
@@ -111,6 +125,26 @@ class DealsController extends AppBaseController {
 
             return redirect( route( 'deals.index' ) );
         }
+
+        try{
+            if ( $request->hasFile( 'image' ) && $request->file( 'image' )->isValid() ) {
+                $originalName = $request->file( 'image' )->getClientOriginalName();
+                $nameWithoutSpace = preg_replace( '/\s+/', '-', $originalName );
+                $month = date('F-Y');
+                $path = $request->file( 'image' )->storeAs( $month, $nameWithoutSpace, 'public' );
+                $input = $request->all();
+                $input[ 'image' ] = 'storage/' . $path;
+                $deals = $this->dealsRepository->update( $input, $id );
+                $message = "Deals saved successfully.";
+            }
+            $message = "Deals unsaved.";
+           
+        } catch ( Exception $e ) {
+            $e->getMessage();
+            $message = "Error " . $e->getMessage(); 
+        }
+
+        Flash::success( $message );
 
         return view( 'deals.edit' )->with( [ 'deals' => $deals, 'stores' => $stores ] );
     }

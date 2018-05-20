@@ -3,6 +3,7 @@
         <thead>
             <tr>
                 <th>Title</th>
+                <th>Image</th>
                 <th>Description</th>
                 <th>Price Old</th>
                 <th>Price</th>
@@ -14,6 +15,7 @@
         <tbody>
             <tr>
                 <td>{{ $deals->title }}</td>
+                <td>{{ $deals->image }}</td>
                 <td>{{ $deals->description }}</td>
                 <td>{{ $deals->price_old }}</td>
                 <td>{{ $deals->price }}</td>

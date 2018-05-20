@@ -21,6 +21,7 @@
         <thead>
             <tr>
                 <th>Title</th>
+                <th>Image</th>
                 <th>Price Old</th>
                 <th>Price</th>
                 <th>Url</th>
@@ -33,6 +34,7 @@
             @foreach($deals as $deals)
                 <tr>
                     <td>{{ $deals->title }}</td>
+                    <td>{{ $deals->image }}</td>
                     <td>{{ $deals->price_old }}</td>
                     <td>{{ $deals->price }}</td>
                     <td>

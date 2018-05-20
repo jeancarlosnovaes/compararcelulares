@@ -91,6 +91,11 @@
         .content-wrapper {
             margin-bottom: 1rem;
         }
+        
+        .card {    
+            margin-top: 1rem;
+        }
+
         table img {
             max-width: 122px;
             max-height: 40px;
